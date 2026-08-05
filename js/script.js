@@ -295,6 +295,32 @@
     }
   });
 
+  document.getElementById('a11y-panel-close').addEventListener('click', () => {
+    a11yPanel.setAttribute('hidden', '');
+    a11yToggle.setAttribute('aria-expanded', 'false');
+    a11yToggle.focus();
+  });
+
+  /* ---- Minimize / restore: Aksesibilitas ---- */
+  const a11yWidget = document.getElementById('a11y-widget');
+  const a11yMinimizeBtn = document.getElementById('a11y-minimize');
+  const a11yRestoreBtn = document.getElementById('a11y-restore');
+  const MIN_KEY_A11Y = 'slbn-a11y-minimized';
+
+  function setA11yMinimized(state){
+    a11yWidget.classList.toggle('is-minimized', state);
+    a11yRestoreBtn.hidden = !state;
+    if (state) {
+      a11yPanel.setAttribute('hidden', '');
+      a11yToggle.setAttribute('aria-expanded', 'false');
+    }
+    try { localStorage.setItem(MIN_KEY_A11Y, state ? '1' : '0'); } catch (e) {}
+  }
+  a11yMinimizeBtn.addEventListener('click', () => setA11yMinimized(true));
+  a11yRestoreBtn.addEventListener('click', () => { setA11yMinimized(false); a11yToggle.focus(); });
+  try { if (localStorage.getItem(MIN_KEY_A11Y) === '1') setA11yMinimized(true); } catch (e) {}
+
+
   /* ------------------------------------------------------------------
      11. TUNAS CHATBOT (rule-based, tanpa backend)
   ------------------------------------------------------------------ */
@@ -321,6 +347,28 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !tunasPanel.hasAttribute('hidden')) closeTunas();
   });
+
+  /* ---- Minimize / restore: TUNAS ---- */
+  const tunasWidget = document.getElementById('tunas-widget');
+  const tunasMinimizeBtn = document.getElementById('tunas-minimize');
+  const tunasMinimizeInnerBtn = document.getElementById('tunas-minimize-inner');
+  const tunasRestoreBtn = document.getElementById('tunas-restore');
+  const MIN_KEY_TUNAS = 'slbn-tunas-minimized';
+
+  function setTunasMinimized(state){
+    tunasWidget.classList.toggle('is-minimized', state);
+    tunasRestoreBtn.hidden = !state;
+    if (state) {
+      tunasPanel.setAttribute('hidden', '');
+      tunasToggle.setAttribute('aria-expanded', 'false');
+    }
+    try { localStorage.setItem(MIN_KEY_TUNAS, state ? '1' : '0'); } catch (e) {}
+  }
+  tunasMinimizeBtn.addEventListener('click', () => setTunasMinimized(true));
+  tunasMinimizeInnerBtn.addEventListener('click', () => setTunasMinimized(true));
+  tunasRestoreBtn.addEventListener('click', () => { setTunasMinimized(false); tunasToggle.focus(); });
+  try { if (localStorage.getItem(MIN_KEY_TUNAS) === '1') setTunasMinimized(true); } catch (e) {}
+
 
   function addTunasMessage(text, from){
     const p = document.createElement('p');
