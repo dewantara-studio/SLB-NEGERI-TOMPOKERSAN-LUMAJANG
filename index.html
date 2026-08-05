@@ -426,8 +426,17 @@
   <button class="a11y-widget__toggle" id="a11y-toggle" aria-expanded="false" aria-controls="a11y-panel" aria-label="Buka menu aksesibilitas">
     <span aria-hidden="true">♿</span>
   </button>
+  <button class="widget-minimize" id="a11y-minimize" aria-label="Minimalkan widget aksesibilitas" title="Minimalkan">
+    <span aria-hidden="true">−</span>
+  </button>
+  <button class="widget-restore" id="a11y-restore" aria-label="Tampilkan kembali widget aksesibilitas" hidden>
+    <span aria-hidden="true">♿</span>
+  </button>
   <div class="a11y-widget__panel" id="a11y-panel" hidden>
-    <h2>Aksesibilitas</h2>
+    <div class="a11y-widget__panel-head">
+      <h2>Aksesibilitas</h2>
+      <button id="a11y-panel-close" aria-label="Tutup panel aksesibilitas">✕</button>
+    </div>
     <button id="a11y-inc" type="button">A+ <span>Perbesar Teks</span></button>
     <button id="a11y-dec" type="button">A- <span>Perkecil Teks</span></button>
     <button id="a11y-contrast" type="button" aria-pressed="false"><span aria-hidden="true">◐</span> Kontras Tinggi</button>
@@ -443,9 +452,16 @@
   <button class="tunas-widget__toggle" id="tunas-toggle" aria-expanded="false" aria-controls="tunas-panel" aria-label="Buka chatbot TUNAS">
     <svg width="30" height="30" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="var(--color-green)"/><path d="M24 34c-6 0-10-4.5-10-10 0-4 2-7 5-9-1 3 0 5 2 6-.5-4 1-8 5-10 1 4 4 6 6 9 2 3 2 6 0 9-2 3-5 5-8 5z" fill="#fff"/></svg>
   </button>
+  <button class="widget-minimize widget-minimize--tunas" id="tunas-minimize" aria-label="Minimalkan chatbot TUNAS" title="Minimalkan">
+    <span aria-hidden="true">−</span>
+  </button>
+  <button class="widget-restore widget-restore--tunas" id="tunas-restore" aria-label="Tampilkan kembali chatbot TUNAS" hidden>
+    <svg width="26" height="26" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="23" fill="var(--color-green)"/><path d="M24 34c-6 0-10-4.5-10-10 0-4 2-7 5-9-1 3 0 5 2 6-.5-4 1-8 5-10 1 4 4 6 6 9 2 3 2 6 0 9-2 3-5 5-8 5z" fill="#fff"/></svg>
+  </button>
   <div class="tunas-widget__panel" id="tunas-panel" hidden>
     <header class="tunas-widget__head">
       <strong>TUNAS</strong><span>Asisten Sekolah</span>
+      <button id="tunas-minimize-inner" aria-label="Minimalkan chat" title="Minimalkan">–</button>
       <button id="tunas-close" aria-label="Tutup chat">✕</button>
     </header>
     <div class="tunas-widget__body" id="tunas-body" role="log" aria-live="polite">
