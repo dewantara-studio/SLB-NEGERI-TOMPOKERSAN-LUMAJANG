@@ -320,14 +320,16 @@ button{ font-family:inherit; cursor:pointer; }
 .a11y-widget{ position:fixed; right:1.2rem; bottom:1.2rem; z-index:1500; }
 .a11y-widget__toggle{
   width:56px; height:56px; border-radius:50%; background:var(--color-blue); color:#fff; border:none;
-  font-size:1.5rem; box-shadow:var(--shadow-md);
+  font-size:1.5rem; box-shadow:var(--shadow-md); position:relative;
 }
 .a11y-widget__panel{
   position:absolute; bottom:68px; right:0; width:250px; background:var(--color-surface);
   border:1px solid var(--color-border); border-radius:var(--radius-md); box-shadow:var(--shadow-md);
   padding:1rem; display:grid; gap:.5rem;
 }
-.a11y-widget__panel h2{ font-size:.95rem; margin-bottom:.3rem; }
+.a11y-widget__panel-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:.2rem; }
+.a11y-widget__panel-head h2{ font-size:.95rem; margin:0; }
+.a11y-widget__panel-head button{ background:none; border:none; font-size:.9rem; color:var(--color-muted); padding:.2rem; }
 .a11y-widget__panel button{
   display:flex; align-items:center; gap:.5rem; width:100%; text-align:left;
   background:var(--color-surface-tint); border:1px solid var(--color-border); border-radius:var(--radius-sm);
@@ -335,13 +337,37 @@ button{ font-family:inherit; cursor:pointer; }
 }
 .a11y-widget__panel button[aria-pressed="true"]{ background:var(--color-green); color:#fff; border-color:var(--color-green); }
 
+/* Minimize / restore controls (shared pattern for both floating widgets) */
+.widget-minimize{
+  position:absolute; top:-6px; right:-6px; width:22px; height:22px; border-radius:50%;
+  background:var(--color-surface); border:1px solid var(--color-border); color:var(--color-muted);
+  font-size:1rem; line-height:1; display:flex; align-items:center; justify-content:center; box-shadow:var(--shadow-sm);
+}
+.widget-minimize:hover{ background:var(--color-surface-tint); color:var(--color-ink); }
+.widget-minimize--tunas{ left:auto; right:-6px; }
+.widget-restore{
+  width:44px; height:44px; border-radius:50%; background:var(--color-blue); color:#fff; border:none;
+  font-size:1.2rem; box-shadow:var(--shadow-md); display:flex; align-items:center; justify-content:center; opacity:.85;
+}
+.widget-restore:hover{ opacity:1; }
+.a11y-widget.is-minimized .a11y-widget__toggle,
+.a11y-widget.is-minimized .widget-minimize,
+.a11y-widget.is-minimized .a11y-widget__panel{ display:none; }
+.a11y-widget:not(.is-minimized) .widget-restore{ display:none; }
+
+.tunas-widget.is-minimized .tunas-widget__toggle,
+.tunas-widget.is-minimized .widget-minimize,
+.tunas-widget.is-minimized .tunas-widget__panel{ display:none; }
+.tunas-widget:not(.is-minimized) .widget-restore{ display:none; }
+#tunas-minimize-inner{ font-size:1rem; padding:0 .4rem; }
+
 /* ==========================================================================
    TUNAS CHATBOT WIDGET
    ========================================================================== */
 .tunas-widget{ position:fixed; left:1.2rem; bottom:1.2rem; z-index:1500; }
 .tunas-widget__toggle{
   width:60px; height:60px; border-radius:50%; background:var(--color-green); border:none; box-shadow:var(--shadow-md);
-  display:flex; align-items:center; justify-content:center;
+  display:flex; align-items:center; justify-content:center; position:relative;
 }
 .tunas-widget__panel{
   position:absolute; bottom:74px; left:0; width:320px; max-width:90vw; background:var(--color-surface);
@@ -352,7 +378,8 @@ button{ font-family:inherit; cursor:pointer; }
   background:var(--color-green); color:#fff; padding:.8rem 1rem; display:flex; align-items:center; gap:.5rem;
 }
 .tunas-widget__head span{ font-size:.75rem; opacity:.9; }
-.tunas-widget__head button{ margin-left:auto; background:none; border:none; color:#fff; font-size:1rem; }
+.tunas-widget__head #tunas-minimize-inner{ margin-left:auto; background:none; border:none; color:#fff; font-size:1.1rem; }
+.tunas-widget__head #tunas-close{ background:none; border:none; color:#fff; font-size:1rem; }
 .tunas-widget__body{ padding:1rem; height:220px; overflow-y:auto; display:flex; flex-direction:column; gap:.6rem; }
 .tunas-msg{ max-width:85%; padding:.55rem .8rem; border-radius:var(--radius-sm); font-size:.88rem; margin:0; }
 .tunas-msg--bot{ background:var(--color-surface-tint); align-self:flex-start; }
