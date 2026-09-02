@@ -8,8 +8,9 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 
   /* ------------------------------------------------------------------
-     1. NAVBAR: mobile toggle + scroll active-link
+     1. NAVBAR: mobile toggle + scroll active-link + scrolled shadow
   ------------------------------------------------------------------ */
+  const navbar = document.getElementById('navbar');
   const navToggle = document.getElementById('nav-toggle');
   const navMenu = document.getElementById('nav-menu');
   navToggle.addEventListener('click', () => {
@@ -22,6 +23,12 @@
       navToggle.setAttribute('aria-expanded', 'false');
     });
   });
+
+  const updateNavbarShadow = () => {
+    navbar.classList.toggle('is-scrolled', window.scrollY > 12);
+  };
+  window.addEventListener('scroll', updateNavbarShadow, { passive:true });
+  updateNavbarShadow();
 
   const sections = document.querySelectorAll('main section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -300,6 +307,7 @@
     a11yToggle.setAttribute('aria-expanded', 'false');
     a11yToggle.focus();
   });
+  document.getElementById('a11y-panel-minimize').addEventListener('click', () => setA11yMinimized(true));
 
   /* ---- Minimize / restore: Aksesibilitas ---- */
   const a11yWidget = document.getElementById('a11y-widget');

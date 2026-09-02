@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css?v=2">
+<link rel="stylesheet" href="css/style.css?v=3">
 
 <!-- Structured data -->
 <script type="application/ld+json">
@@ -88,7 +88,13 @@
       <div class="hero__slide is-active" style="--tint:#2563EB"></div>
       <div class="hero__slide" style="--tint:#22C55E"></div>
       <div class="hero__slide" style="--tint:#1E40AF"></div>
+      <div class="hero__mesh"></div>
+      <div class="hero__blob hero__blob--1"></div>
+      <div class="hero__blob hero__blob--2"></div>
+      <div class="hero__blob hero__blob--3"></div>
+      <div class="hero__grid"></div>
       <svg class="hero__leaves" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,140 C300,190 500,70 800,120 C950,145 1050,90 1200,110 L1200,200 L0,200 Z" fill="#ffffff" opacity=".55"/>
         <path d="M0,120 C300,180 500,40 800,100 C950,130 1050,60 1200,90 L1200,200 L0,200 Z" fill="#ffffff"/>
       </svg>
     </div>
@@ -99,6 +105,11 @@
       <div class="hero__actions" data-aos>
         <a href="#profil" class="btn btn--primary">Profil Sekolah</a>
         <a href="#spmb" class="btn btn--outline-light">SPMB Online</a>
+      </div>
+      <div class="hero__badges" data-aos>
+        <span class="hero__badge"><strong>100%</strong> Gratis SPMB</span>
+        <span class="hero__badge"><strong>3</strong> Jenjang Pendidikan</span>
+        <span class="hero__badge"><strong>♿</strong> Ramah Disabilitas</span>
       </div>
     </div>
     <button class="scroll-cue" id="scroll-cue" aria-label="Gulir ke bawah">
@@ -164,17 +175,17 @@
       <h3 class="subsection-title" data-aos>Jenjang Pendidikan</h3>
       <div class="card-grid card-grid--3">
         <article class="level-card" data-aos>
-          <div class="level-card__icon" aria-hidden="true">🌱</div>
+          <div class="level-card__icon icon-badge" aria-hidden="true">🌱</div>
           <h4>SDLB</h4>
           <p>Jenjang dasar dengan pembelajaran tematik, pengembangan motorik, dan kemandirian sehari-hari.</p>
         </article>
         <article class="level-card" data-aos>
-          <div class="level-card__icon" aria-hidden="true">🌿</div>
+          <div class="level-card__icon icon-badge" aria-hidden="true">🌿</div>
           <h4>SMPLB</h4>
           <p>Penguatan akademik dasar, keterampilan sosial, dan pengenalan bakat vokasional siswa.</p>
         </article>
         <article class="level-card" data-aos>
-          <div class="level-card__icon" aria-hidden="true">🌳</div>
+          <div class="level-card__icon icon-badge" aria-hidden="true">🌳</div>
           <h4>SMALB</h4>
           <p>Pematangan vokasi, kesiapan kerja/wirausaha, dan penguatan karakter menuju kemandirian penuh.</p>
         </article>
@@ -189,32 +200,32 @@
       <h2 class="section-title" data-aos>Belajar Sesuai Minat dan Potensi</h2>
       <div class="card-grid card-grid--3">
         <article class="program-card" data-aos>
-          <div class="program-card__icon" aria-hidden="true">💻</div>
+          <div class="program-card__icon icon-badge" aria-hidden="true">💻</div>
           <h4>Vokasi IT</h4>
           <p>Pelatihan komputer dasar, desain digital, dan literasi teknologi untuk bekal masa depan.</p>
         </article>
         <article class="program-card" data-aos>
-          <div class="program-card__icon" aria-hidden="true">🏡</div>
+          <div class="program-card__icon icon-badge" aria-hidden="true">🏡</div>
           <h4>Tata Graha</h4>
           <p>Keterampilan rumah tangga dan perhotelan sebagai bekal kemandirian dan dunia kerja.</p>
         </article>
         <article class="program-card" data-aos>
-          <div class="program-card__icon" aria-hidden="true">🎨</div>
+          <div class="program-card__icon icon-badge" aria-hidden="true">🎨</div>
           <h4>Seni &amp; Keterampilan</h4>
           <p>Melukis, kerajinan tangan, dan musik untuk mengasah ekspresi dan rasa percaya diri.</p>
         </article>
         <article class="program-card" data-aos>
-          <div class="program-card__icon" aria-hidden="true">🤸</div>
+          <div class="program-card__icon icon-badge" aria-hidden="true">🤸</div>
           <h4>PJOK Adaptif</h4>
           <p>Aktivitas fisik yang disesuaikan dengan kebutuhan khusus setiap peserta didik.</p>
         </article>
         <article class="program-card" data-aos>
-          <div class="program-card__icon" aria-hidden="true">🌟</div>
+          <div class="program-card__icon icon-badge" aria-hidden="true">🌟</div>
           <h4>Projek P5</h4>
           <p>Penguatan Profil Pelajar Pancasila melalui proyek nyata lintas mata pelajaran.</p>
         </article>
         <article class="program-card" data-aos>
-          <div class="program-card__icon" aria-hidden="true">📚</div>
+          <div class="program-card__icon icon-badge" aria-hidden="true">📚</div>
           <h4>Literasi Sekolah</h4>
           <p>Pembiasaan membaca dan menulis yang disesuaikan dengan berbagai gaya belajar siswa.</p>
         </article>
@@ -343,11 +354,11 @@
       <p class="section-eyebrow" data-aos>Belajar Sambil Bermain</p>
       <h2 class="section-title" data-aos>Gim Edukasi SLBN Tompokersan</h2>
       <div class="card-grid card-grid--3">
-        <article class="game-card" data-aos><div class="game-card__icon">🌈</div><h4>Warna-Warni Perasaan</h4><p>Mengenal dan mencocokkan warna dengan emosi.</p></article>
-        <article class="game-card" data-aos><div class="game-card__icon">😊</div><h4>Tebak Emosi</h4><p>Melatih kemampuan membaca ekspresi wajah.</p></article>
-        <article class="game-card" data-aos><div class="game-card__icon">🔤</div><h4>Belajar Huruf</h4><p>Mengenal huruf melalui gambar dan suara.</p></article>
-        <article class="game-card" data-aos><div class="game-card__icon">🔢</div><h4>Belajar Angka</h4><p>Berhitung sederhana dengan visual interaktif.</p></article>
-        <article class="game-card" data-aos><div class="game-card__icon">🔬</div><h4>Belajar IPA</h4><p>Eksplorasi alam sekitar secara menyenangkan.</p></article>
+        <article class="game-card" data-aos><div class="game-card__icon icon-badge">🌈</div><h4>Warna-Warni Perasaan</h4><p>Mengenal dan mencocokkan warna dengan emosi.</p></article>
+        <article class="game-card" data-aos><div class="game-card__icon icon-badge">😊</div><h4>Tebak Emosi</h4><p>Melatih kemampuan membaca ekspresi wajah.</p></article>
+        <article class="game-card" data-aos><div class="game-card__icon icon-badge">🔤</div><h4>Belajar Huruf</h4><p>Mengenal huruf melalui gambar dan suara.</p></article>
+        <article class="game-card" data-aos><div class="game-card__icon icon-badge">🔢</div><h4>Belajar Angka</h4><p>Berhitung sederhana dengan visual interaktif.</p></article>
+        <article class="game-card" data-aos><div class="game-card__icon icon-badge">🔬</div><h4>Belajar IPA</h4><p>Eksplorasi alam sekitar secara menyenangkan.</p></article>
       </div>
     </div>
   </section>
@@ -435,7 +446,10 @@
   <div class="a11y-widget__panel" id="a11y-panel" hidden>
     <div class="a11y-widget__panel-head">
       <h2>Aksesibilitas</h2>
-      <button id="a11y-panel-close" aria-label="Tutup panel aksesibilitas">✕</button>
+      <div class="a11y-widget__panel-head-actions">
+        <button id="a11y-panel-minimize" aria-label="Minimalkan widget aksesibilitas" title="Minimalkan">–</button>
+        <button id="a11y-panel-close" aria-label="Tutup panel aksesibilitas">✕</button>
+      </div>
     </div>
     <button id="a11y-inc" type="button">A+ <span>Perbesar Teks</span></button>
     <button id="a11y-dec" type="button">A- <span>Perkecil Teks</span></button>
@@ -480,6 +494,6 @@
   </div>
 </div>
 
-<script src="js/script.js?v=2"></script>
+<script src="js/script.js?v=3"></script>
 </body>
 </html>
