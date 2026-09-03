@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css?v=3">
+<link rel="stylesheet" href="css/style.css?v=4">
 
 <!-- Structured data -->
 <script type="application/ld+json">
@@ -55,9 +55,9 @@
 
 <!-- ============ NAVBAR ============ -->
 <header class="navbar" id="navbar">
-  <div class="navbar__inner container">
+  <div class="navbar__pill container">
     <a href="#beranda" class="brand" aria-label="SLB Negeri Tompokersan Lumajang - Beranda">
-      <img class="brand__logo" src="assets/img/logo-sekolah.png" width="40" height="40" alt="Logo SLB Negeri Tompokersan Lumajang">
+      <img class="brand__logo" src="assets/img/logo-sekolah.png" width="38" height="38" alt="Logo SLB Negeri Tompokersan Lumajang">
       <span class="brand__text">SLBN <strong>Tompokersan</strong></span>
     </a>
 
@@ -69,10 +69,11 @@
         <li><a href="#prestasi" class="nav-link">Prestasi</a></li>
         <li><a href="#galeri" class="nav-link">Galeri</a></li>
         <li><a href="#berita" class="nav-link">Berita</a></li>
-        <li><a href="#spmb" class="nav-link nav-link--cta">SPMB</a></li>
         <li><a href="#kontak" class="nav-link">Kontak</a></li>
       </ul>
     </nav>
+
+    <a href="#spmb" class="btn-spmb-nav">SPMB Online</a>
 
     <button class="nav-toggle" id="nav-toggle" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="nav-menu">
       <span></span><span></span><span></span>
@@ -84,38 +85,68 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="beranda" aria-label="Sambutan utama">
-    <div class="hero__bg" aria-hidden="true">
-      <div class="hero__slide is-active" style="--tint:#2563EB"></div>
-      <div class="hero__slide" style="--tint:#22C55E"></div>
-      <div class="hero__slide" style="--tint:#1E40AF"></div>
-      <div class="hero__mesh"></div>
-      <div class="hero__blob hero__blob--1"></div>
-      <div class="hero__blob hero__blob--2"></div>
-      <div class="hero__blob hero__blob--3"></div>
-      <div class="hero__grid"></div>
-      <svg class="hero__leaves" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,140 C300,190 500,70 800,120 C950,145 1050,90 1200,110 L1200,200 L0,200 Z" fill="#ffffff" opacity=".55"/>
-        <path d="M0,120 C300,180 500,40 800,100 C950,130 1050,60 1200,90 L1200,200 L0,200 Z" fill="#ffffff"/>
-      </svg>
+    <div class="hero__blobs" aria-hidden="true">
+      <span class="hero__blob hero__blob--1"></span>
+      <span class="hero__blob hero__blob--2"></span>
+      <span class="hero__blob hero__blob--3"></span>
+      <span class="hero__dots" aria-hidden="true"></span>
     </div>
-    <div class="hero__content container">
-      <p class="eyebrow" data-aos>Sekolah Ramah Disabilitas &amp; Berbasis Teknologi</p>
-      <h1 data-aos>Selamat Datang di SLB Negeri Tompokersan Lumajang</h1>
-      <p class="hero__subtitle" data-aos>Mewujudkan Peserta Didik Berkebutuhan Khusus yang Mandiri, Berprestasi, dan Berkarakter.</p>
-      <div class="hero__actions" data-aos>
-        <a href="#profil" class="btn btn--primary">Profil Sekolah</a>
-        <a href="#spmb" class="btn btn--outline-light">SPMB Online</a>
+
+    <div class="container hero__layout">
+      <div class="hero__content">
+        <p class="eyebrow" data-aos>🌱&nbsp; Sekolah Ramah Disabilitas &amp; Berbasis Teknologi</p>
+        <h1 data-aos>Selamat Datang di <span class="text-gradient">SLB Negeri Tompokersan</span> Lumajang</h1>
+        <p class="hero__subtitle" data-aos>Mewujudkan Peserta Didik Berkebutuhan Khusus yang Mandiri, Berprestasi, dan Berkarakter.</p>
+        <div class="hero__actions" data-aos>
+          <a href="#profil" class="btn btn--primary">Profil Sekolah</a>
+          <a href="#spmb" class="btn btn--outline-dark">SPMB Online <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="hero__trust" data-aos>
+          <div class="hero__avatars" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+          <p><strong>186+</strong> peserta didik belajar dengan bahagia setiap hari di sini</p>
+        </div>
       </div>
-      <div class="hero__badges" data-aos>
-        <span class="hero__badge"><strong>100%</strong> Gratis SPMB</span>
-        <span class="hero__badge"><strong>3</strong> Jenjang Pendidikan</span>
-        <span class="hero__badge"><strong>♿</strong> Ramah Disabilitas</span>
+
+      <div class="hero__visual" data-aos aria-hidden="true">
+        <div class="bento-card bento-card--stat float-1">
+          <span class="bento-card__icon">🏆</span>
+          <strong>97+</strong>
+          <span>Prestasi Diraih</span>
+        </div>
+        <div class="bento-card bento-card--photo float-2">
+          <svg viewBox="0 0 200 160" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><rect width="200" height="160" fill="url(#heroPhotoGrad)"/><circle cx="60" cy="55" r="26" fill="#ffffff" opacity=".35"/><circle cx="140" cy="100" r="38" fill="#ffffff" opacity=".25"/><defs><linearGradient id="heroPhotoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2563EB"/><stop offset="1" stop-color="#22C55E"/></linearGradient></defs></svg>
+        </div>
+        <div class="bento-card bento-card--quote float-3">
+          <p>&ldquo;Setiap anak istimewa dengan caranya sendiri.&rdquo;</p>
+        </div>
+        <div class="bento-card bento-card--stat float-4">
+          <span class="bento-card__icon">♿</span>
+          <strong>100%</strong>
+          <span>Ramah Disabilitas</span>
+        </div>
       </div>
     </div>
+
     <button class="scroll-cue" id="scroll-cue" aria-label="Gulir ke bawah">
-      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16 4 8h16z" fill="currentColor"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16 4 8h16z" fill="currentColor"/></svg>
     </button>
   </section>
+
+  <!-- ============ MARQUEE TICKER ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>MANDIRI</span><span class="marquee__dot">✦</span>
+      <span>BERPRESTASI</span><span class="marquee__dot">✦</span>
+      <span>BERKARAKTER</span><span class="marquee__dot">✦</span>
+      <span>RAMAH DISABILITAS</span><span class="marquee__dot">✦</span>
+      <span>BERBASIS TEKNOLOGI</span><span class="marquee__dot">✦</span>
+      <span>MANDIRI</span><span class="marquee__dot">✦</span>
+      <span>BERPRESTASI</span><span class="marquee__dot">✦</span>
+      <span>BERKARAKTER</span><span class="marquee__dot">✦</span>
+      <span>RAMAH DISABILITAS</span><span class="marquee__dot">✦</span>
+      <span>BERBASIS TEKNOLOGI</span><span class="marquee__dot">✦</span>
+    </div>
+  </div>
 
   <!-- ============ STATISTIK ============ -->
   <section class="stats" aria-label="Statistik sekolah">
@@ -494,6 +525,6 @@
   </div>
 </div>
 
-<script src="js/script.js?v=3"></script>
+<script src="js/script.js?v=4"></script>
 </body>
 </html>
