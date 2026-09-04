@@ -520,3 +520,23 @@ button{ font-family:inherit; cursor:pointer; }
   .gallery-grid{ grid-template-columns:1fr 1fr; }
   .spmb__actions .btn{ width:100%; }
 }
+
+/* Panel widget (TUNAS & Aksesibilitas) dibuat lebih ringkas di layar kecil
+   supaya tidak menutupi sebagian besar konten. */
+@media (max-width: 640px){
+  .a11y-widget{ right:.8rem; bottom:.8rem; }
+  .tunas-widget{ left:.8rem; bottom:.8rem; }
+  .a11y-widget__toggle,.tunas-widget__toggle{ width:50px; height:50px; }
+
+  .tunas-widget__panel{
+    width:calc(100vw - 1.6rem); max-width:340px; bottom:60px;
+    max-height:min(60vh, 420px); display:flex; flex-direction:column;
+  }
+  .tunas-widget__body{ height:auto; flex:1 1 auto; min-height:120px; max-height:35vh; }
+
+  .a11y-widget__panel{
+    width:calc(100vw - 1.6rem); max-width:280px; bottom:60px;
+    max-height:70vh; overflow-y:auto;
+  }
+}
+
