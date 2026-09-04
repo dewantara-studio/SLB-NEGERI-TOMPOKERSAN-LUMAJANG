@@ -30,7 +30,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css?v=5">
+<link rel="stylesheet" href="css/style.css?v=7">
+
+<!-- Pannellum: library open-source untuk viewer foto 360° (tanpa backend) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+<script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js" defer></script>
 
 <!-- Structured data -->
 <script type="application/ld+json">
@@ -68,6 +72,7 @@
         <li><a href="#program" class="nav-link">Program</a></li>
         <li><a href="#prestasi" class="nav-link">Prestasi</a></li>
         <li><a href="#galeri" class="nav-link">Galeri</a></li>
+        <li><a href="#sosmed" class="nav-link">Sosmed</a></li>
         <li><a href="#berita" class="nav-link">Berita</a></li>
         <li><a href="#kontak" class="nav-link">Kontak</a></li>
       </ul>
@@ -324,6 +329,50 @@
     </div>
   </section>
 
+  <!-- ============ SOSIAL MEDIA ============ -->
+  <section class="section" id="sosmed" aria-label="Sosial media sekolah">
+    <div class="container">
+      <p class="section-eyebrow" data-aos>Ikuti Kami</p>
+      <h2 class="section-title" data-aos>Update dari Sosial Media Sekolah</h2>
+      <p class="sosmed-intro" data-aos>Foto dan video terbaru dari kanal resmi sekolah, tampil otomatis &amp; acak setiap kunjungan.</p>
+
+      <div class="sosmed-grid">
+        <div class="sosmed-col" data-aos>
+          <div class="sosmed-col__head">
+            <span class="sosmed-col__icon sosmed-col__icon--youtube" aria-hidden="true">▶</span>
+            <h3>YouTube</h3>
+          </div>
+          <div class="sosmed-col__body" id="sosmed-youtube">
+            <p class="sosmed-empty">Video akan tampil di sini setelah kanal YouTube dihubungkan.</p>
+          </div>
+          <a href="https://www.youtube.com/@slbntompokersanlumajang" target="_blank" rel="noopener" class="sosmed-col__link">Kunjungi Channel →</a>
+        </div>
+
+        <div class="sosmed-col" data-aos>
+          <div class="sosmed-col__head">
+            <span class="sosmed-col__icon sosmed-col__icon--instagram" aria-hidden="true">◎</span>
+            <h3>Instagram</h3>
+          </div>
+          <div class="sosmed-col__body" id="sosmed-instagram">
+            <p class="sosmed-empty">Postingan akan tampil di sini setelah link ditambahkan.</p>
+          </div>
+          <a href="https://instagram.com/slbntompokersan" target="_blank" rel="noopener" class="sosmed-col__link">Kunjungi Instagram →</a>
+        </div>
+
+        <div class="sosmed-col" data-aos>
+          <div class="sosmed-col__head">
+            <span class="sosmed-col__icon sosmed-col__icon--tiktok" aria-hidden="true">♪</span>
+            <h3>TikTok</h3>
+          </div>
+          <div class="sosmed-col__body" id="sosmed-tiktok">
+            <p class="sosmed-empty">Video akan tampil di sini setelah link ditambahkan.</p>
+          </div>
+          <a href="https://tiktok.com/@slbntompokersan" target="_blank" rel="noopener" class="sosmed-col__link">Kunjungi TikTok →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ BERITA ============ -->
   <section class="section" id="berita" aria-label="Berita terbaru">
     <div class="container">
@@ -399,10 +448,14 @@
     <div class="container">
       <p class="section-eyebrow" data-aos>Jelajahi Sekolah</p>
       <h2 class="section-title" data-aos>Virtual Tour 360°</h2>
+
       <div class="tour-frame" data-aos>
-        <div class="tour-frame__placeholder">
-          <span aria-hidden="true">🎥</span>
-          <p>Video &amp; foto 360° suasana sekolah akan segera tersedia di sini.</p>
+        <div class="tour-tabs" id="tour-tabs" role="tablist" aria-label="Pilih ruangan"></div>
+        <div class="tour-viewer" id="tour-viewer">
+          <div class="tour-frame__placeholder" id="tour-placeholder">
+            <span aria-hidden="true">🎥</span>
+            <p>Foto &amp; video 360° suasana sekolah akan segera tersedia di sini.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -525,6 +578,6 @@
   </div>
 </div>
 
-<script src="js/script.js?v=5"></script>
+<script src="js/script.js?v=7"></script>
 </body>
 </html>

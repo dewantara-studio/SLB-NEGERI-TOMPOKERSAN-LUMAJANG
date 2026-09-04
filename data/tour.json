@@ -1,0 +1,13 @@
+{
+  "_petunjuk": "Isi array 'scenes' di bawah untuk menampilkan Virtual Tour 360°. Setiap scene = satu foto panorama 360° (rasio 2:1, format jpg/png). Taruh file foto di folder assets/img/tour/, lalu tulis nama filenya di 'image'. Kosongkan array ini (scenes: []) jika belum ada foto — situs akan otomatis menampilkan pesan 'segera tersedia'.",
+
+  "scenes": [
+    {
+      "_contoh": "Hapus tanda garis bawah di key ini kalau sudah diisi beneran. Ini hanya contoh struktur.",
+      "id": "halaman-depan",
+      "title": "Halaman Depan Sekolah",
+      "image": "assets/img/tour/CONTOH_GANTI_DENGAN_FOTO_ASLI.jpg",
+      "hotspots": []
+    }
+  ]
+}

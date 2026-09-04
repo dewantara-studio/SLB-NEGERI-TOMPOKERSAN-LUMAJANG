@@ -423,4 +423,129 @@
     });
   });
 
+  /* ------------------------------------------------------------------
+     12. SOSIAL MEDIA — YouTube otomatis (Data API) + IG/TikTok acak (embed resmi)
+  ------------------------------------------------------------------ */
+  function shuffleArray(arr){
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function loadScriptOnce(src, id){
+    return new Promise((resolve) => {
+      if (document.getElementById(id)) { resolve(); return; }
+      const s = document.createElement('script');
+      s.src = src; s.async = true; s.id = id;
+      s.onload = () => resolve();
+      s.onerror = () => resolve();
+      document.body.appendChild(s);
+    });
+  }
+
+  async function renderYoutube(social){
+    const el = document.getElementById('sosmed-youtube');
+    const cfg = social.youtube || {};
+    if (!cfg.apiKey || !cfg.channelId) return; // biarkan pesan placeholder tampil
+    try {
+      const url = `https://www.googleapis.com/youtube/v3/search?key=${cfg.apiKey}&channelId=${cfg.channelId}&part=snippet,id&order=date&maxResults=12&type=video`;
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('gagal memuat YouTube');
+      const data = await res.json();
+      const videos = (data.items || []).filter(it => it.id && it.id.videoId);
+      if (!videos.length) return;
+      const picked = shuffleArray(videos).slice(0, 3);
+      el.innerHTML = '';
+      picked.forEach(v => {
+        const wrap = document.createElement('div');
+        wrap.className = 'sosmed-video';
+        wrap.innerHTML = `
+          <a href="https://www.youtube.com/watch?v=${v.id.videoId}" target="_blank" rel="noopener" aria-label="Tonton: ${v.snippet.title}">
+            <img src="${v.snippet.thumbnails.medium.url}" alt="${v.snippet.title}" loading="lazy">
+            <span class="sosmed-video__play" aria-hidden="true">▶</span>
+          </a>
+          <p>${v.snippet.title}</p>`;
+        el.appendChild(wrap);
+      });
+    } catch (e) { /* biarkan placeholder jika gagal */ }
+  }
+
+  async function renderEmbedPlatform(social, key, containerId, embedScriptSrc, embedScriptId, buildBlockquote){
+    const el = document.getElementById(containerId);
+    const links = (social[key] || []).filter(u => u && !u.includes('CONTOH_GANTI'));
+    if (!links.length) return; // biarkan pesan placeholder tampil
+    const picked = shuffleArray(links).slice(0, 2);
+    el.innerHTML = '';
+    picked.forEach(url => {
+      const holder = document.createElement('div');
+      holder.className = 'sosmed-embed';
+      holder.innerHTML = buildBlockquote(url);
+      el.appendChild(holder);
+    });
+    await loadScriptOnce(embedScriptSrc, embedScriptId);
+    if (window.instgrm && window.instgrm.Embeds) window.instgrm.Embeds.process();
+  }
+
+  fetch('data/social.json')
+    .then(res => { if (!res.ok) throw new Error('gagal memuat data sosial media'); return res.json(); })
+    .then(social => {
+      renderYoutube(social);
+      renderEmbedPlatform(social, 'instagram', 'sosmed-instagram', 'https://www.instagram.com/embed.js', 'ig-embed-script',
+        (url) => `<blockquote class="instagram-media" data-instgrm-permalink="${url}" data-instgrm-version="14"></blockquote>`);
+      renderEmbedPlatform(social, 'tiktok', 'sosmed-tiktok', 'https://www.tiktok.com/embed.js', 'tiktok-embed-script',
+        (url) => `<blockquote class="tiktok-embed" cite="${url}" data-video-id=""><section></section></blockquote>`);
+    })
+    .catch(() => { /* biarkan pesan placeholder di ketiga kolom jika data/social.json belum ada / gagal */ });
+
+  /* ------------------------------------------------------------------
+     13. VIRTUAL TOUR 360° (Pannellum) — otomatis nonaktif jika belum ada foto
+  ------------------------------------------------------------------ */
+  function initVirtualTour(scenes){
+    const tabsEl = document.getElementById('tour-tabs');
+    const viewerEl = document.getElementById('tour-viewer');
+    const valid = (scenes || []).filter(s => s.image && !s.image.includes('CONTOH_GANTI'));
+    if (!valid.length || typeof pannellum === 'undefined') return; // biarkan placeholder tampil
+
+    viewerEl.innerHTML = '<div id="tour-pannellum" style="width:100%;height:100%;"></div>';
+    tabsEl.innerHTML = '';
+
+    const config = {
+      default: { firstScene: valid[0].id, autoLoad: true, sceneFadeDuration: 800 },
+      scenes: {}
+    };
+    valid.forEach(s => {
+      config.scenes[s.id] = {
+        type: 'equirectangular',
+        panorama: s.image,
+        title: s.title,
+        hotSpots: (s.hotspots || []).map(h => ({
+          pitch: h.pitch || 0, yaw: h.yaw || 0, type: 'scene', text: h.title || '', sceneId: h.target
+        }))
+      };
+    });
+
+    const viewer = pannellum.viewer('tour-pannellum', config);
+
+    valid.forEach((s, i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = s.title;
+      btn.className = i === 0 ? 'is-active' : '';
+      btn.addEventListener('click', () => {
+        viewer.loadScene(s.id);
+        tabsEl.querySelectorAll('button').forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+      });
+      tabsEl.appendChild(btn);
+    });
+  }
+
+  fetch('data/tour.json')
+    .then(res => { if (!res.ok) throw new Error('gagal memuat data tour'); return res.json(); })
+    .then(data => initVirtualTour(data.scenes))
+    .catch(() => { /* biarkan pesan placeholder jika data/tour.json belum ada / kosong */ });
+
 })();
