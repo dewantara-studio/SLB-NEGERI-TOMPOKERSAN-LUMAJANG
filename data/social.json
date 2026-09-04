@@ -2,18 +2,16 @@
   "_petunjuk": "Tempel link postingan Instagram / video TikTok di bawah ini. Situs akan otomatis mengacak dan menampilkan beberapa di antaranya setiap kali dibuka. Tidak perlu koding — cukup tambah/hapus baris di dalam tanda kutip, pisahkan dengan koma.",
 
   "instagram": [
-    "https://www.instagram.com/reel/DYHV7uii6cM/",
-    "https://www.instagram.com/reel/DNuxZuGZHCq/"
+    "https://www.instagram.com/reel/DYHV7uii6cM/"
   ],
 
   "tiktok": [
-    "https://vt.tiktok.com/ZSqJB55tf/",
-    "https://vt.tiktok.com/ZSqJBHyG3/"
+    "https://www.tiktok.com/@slbntompokersanlmj/video/7680829995027025172?is_from_webapp=1&sender_device=pc&web_id=7681479892907066900"
   ],
 
   "youtube": {
     "_petunjuk": "channelId sudah otomatis ditemukan dari handle @slbntompokersanlumajang. Tinggal isi apiKey — lihat README.md bagian 'Menghubungkan YouTube' untuk cara mendapatkannya dari Google Cloud Console (gratis).",
     "channelId": "UCZm4HvwqmH29_k_PBvP-8jQ",
-    "apiKey": ""
+    "apiKey": "AIzaSyDqki5H-ncQsnUYQreDeMQPNLZ-qXbTSO0"
   }
 }
