@@ -513,7 +513,11 @@
       renderEmbedPlatform(social, 'instagram', 'sosmed-instagram', 'https://www.instagram.com/embed.js', 'ig-embed-script',
         (url) => `<blockquote class="instagram-media" data-instgrm-permalink="${url}" data-instgrm-version="14"></blockquote>`);
       renderEmbedPlatform(social, 'tiktok', 'sosmed-tiktok', 'https://www.tiktok.com/embed.js', 'tiktok-embed-script',
-        (url) => `<blockquote class="tiktok-embed" cite="${url}" data-video-id=""><section></section></blockquote>`);
+        (url) => {
+          const match = url.match(/\/video\/(\d+)/);
+          const videoId = match ? match[1] : '';
+          return `<blockquote class="tiktok-embed" cite="${url}" data-video-id="${videoId}" style="max-width:605px;min-width:325px;"><section></section></blockquote>`;
+        });
     })
     .catch(() => { /* biarkan pesan placeholder di ketiga kolom jika data/social.json belum ada / gagal */ });
 
