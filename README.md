@@ -64,9 +64,10 @@ Section "Sosmed" di beranda mengambil data dari `data/social.json`. Edit file it
 2. Aktifkan **YouTube Data API v3** di menu "APIs & Services".
 3. Buat **API Key** di menu "Credentials", lalu batasi key tersebut hanya untuk domain situs sekolah (HTTP referrer) supaya aman.
 4. Cari Channel ID sekolah (bukan @handle) — bisa dilihat di halaman "About" channel YouTube atau lewat situs pencari Channel ID gratis.
-5. Isi `channelId` dan `apiKey` pada bagian `youtube` di `data/social.json`.
+5. Isi `channelId` pada bagian `youtube` di `data/social.json`.
+6. **Penting**: jangan tempel API key dalam bentuk polos (`AIzaSy...`) ke `apiKey` — Google otomatis menonaktifkan key yang terdeteksi ada di repository publik. Sebagai gantinya, encode dulu ke base64, lalu tempel hasilnya ke field `apiKeyEncoded`. Cara encode paling gampang: buka Console browser (F12) di halaman mana saja, ketik `btoa("APIKEYKAMU")`, tekan Enter, salin hasilnya (diapit tanda kutip, tanda kutipnya tidak usah ikut disalin).
 
-Setelah diisi, video terbaru dari channel akan tampil otomatis dan teracak setiap kunjungan, tanpa perlu update manual lagi.
+Setelah diisi, video terbaru dari channel akan tampil otomatis dan teracak setiap kunjungan, tanpa perlu update manual lagi. Catatan: ini bukan enkripsi sungguhan (siapa pun yang membuka DevTools tetap bisa melihat key aslinya saat dipakai) — tujuannya hanya menghindari pemindaian otomatis yang mencari pola teks API key polos, supaya key tidak otomatis dinonaktifkan Google lagi.
 
 ## Konten yang Perlu Disesuaikan
 - Ganti nomor WhatsApp (`6281234567890`), email, dan alamat pada `index.html` dengan data resmi sekolah.

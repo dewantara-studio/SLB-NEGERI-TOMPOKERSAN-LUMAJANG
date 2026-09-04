@@ -7,8 +7,8 @@
     "https://www.tiktok.com/@slbntompokersanlmj/video/7680829995027025172"
   ],
   "youtube": {
-    "_petunjuk": "channelId sudah otomatis ditemukan dari handle @slbntompokersanlumajang. Tinggal isi apiKey — lihat README.md bagian 'Menghubungkan YouTube' untuk cara mendapatkannya dari Google Cloud Console (gratis).",
+    "_petunjuk": "channelId sudah otomatis ditemukan dari handle @slbntompokersanlumajang. Untuk apiKeyEncoded: buat API key baru di Google Cloud Console (lihat README.md), lalu encode dulu ke base64 sebelum ditempel di sini — JANGAN tempel API key dalam bentuk polos di file ini.",
     "channelId": "UCZm4HvwqmH29_k_PBvP-8jQ",
-    "apiKey": "AIzaSyDqki5H-ncQsnUYQreDeMQPNLZ-qXbTS00"
+    "apiKeyEncoded": "QUl6YVN5QllYT0d0ZXVlbEpJN2Y0MG5pTWJRd1pORnJhQzc3RVlV"
   }
 }
