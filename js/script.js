@@ -453,10 +453,19 @@
     try {
       const url = `https://www.googleapis.com/youtube/v3/search?key=${cfg.apiKey}&channelId=${cfg.channelId}&part=snippet,id&order=date&maxResults=12&type=video`;
       const res = await fetch(url);
-      if (!res.ok) throw new Error('gagal memuat YouTube');
+      if (!res.ok) {
+        const errBody = await res.json().catch(() => null);
+        const reason = errBody && errBody.error && errBody.error.message ? errBody.error.message : `HTTP ${res.status}`;
+        console.error('YouTube API error:', reason);
+        el.innerHTML = `<p class="sosmed-empty">Video belum bisa dimuat (${res.status === 403 ? 'domain belum diizinkan / API key salah' : 'cek konsol browser (F12) untuk detail'}). Cek pengaturan API key di Google Cloud Console.</p>`;
+        return;
+      }
       const data = await res.json();
       const videos = (data.items || []).filter(it => it.id && it.id.videoId);
-      if (!videos.length) return;
+      if (!videos.length) {
+        el.innerHTML = '<p class="sosmed-empty">Belum ada video ditemukan di channel ini.</p>';
+        return;
+      }
       const picked = shuffleArray(videos).slice(0, 3);
       el.innerHTML = '';
       picked.forEach(v => {
@@ -470,7 +479,10 @@
           <p>${v.snippet.title}</p>`;
         el.appendChild(wrap);
       });
-    } catch (e) { /* biarkan placeholder jika gagal */ }
+    } catch (e) {
+      console.error('YouTube fetch error:', e);
+      el.innerHTML = '<p class="sosmed-empty">Video belum bisa dimuat. Cek konsol browser (F12) untuk detail error.</p>';
+    }
   }
 
   async function renderEmbedPlatform(social, key, containerId, embedScriptSrc, embedScriptId, buildBlockquote){
