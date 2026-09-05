@@ -337,9 +337,10 @@ button{ font-family:inherit; cursor:pointer; }
 .calendar__legend{ list-style:none; display:flex; gap:1.2rem; justify-content:center; margin-top:1rem; font-size:.85rem; flex-wrap:wrap; }
 .calendar__legend li{ display:flex; align-items:center; gap:.4rem; }
 
-.tool-card{ background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:2rem 1rem; text-align:center; box-shadow:var(--shadow-sm); transition:transform var(--transition), box-shadow var(--transition); }
+.tool-card{ background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:2rem 1rem; text-align:center; box-shadow:var(--shadow-sm); transition:transform var(--transition), box-shadow var(--transition); display:block; text-decoration:none; color:var(--color-text); }
+.tool-card h4{ color:var(--color-ink); }
 .tool-card span{ font-size:1.9rem; display:block; margin-bottom:.6rem; }
-.tool-card:hover{ transform:translateY(-6px) scale(1.02); box-shadow:var(--shadow-md); }
+.tool-card:hover{ transform:translateY(-6px) scale(1.02); box-shadow:var(--shadow-md); border-color:var(--color-blue); }
 .lib-note{ text-align:center; margin-top:1.2rem; color:var(--color-blue); font-weight:600; min-height:1.5em; }
 
 .tour-frame__placeholder{ background:var(--gradient-brand-soft); border:1px dashed var(--color-border); border-radius:var(--radius-xl); padding:4.5rem 2rem; text-align:center; color:var(--color-muted); }

@@ -214,20 +214,9 @@
   renderCalendar(calDate);
 
   /* ------------------------------------------------------------------
-     8. PERPUSTAKAAN DIGITAL (demo interaktif, tanpa backend)
+     8. PERPUSTAKAAN DIGITAL — tautan langsung ke situs terpisah,
+        lihat href pada masing-masing kartu di index.html
   ------------------------------------------------------------------ */
-  const libNote = document.getElementById('lib-note');
-  const libMessages = {
-    cari: 'Fitur cari buku akan menampilkan hasil pencarian dari katalog digital sekolah.',
-    katalog: 'Katalog buku menampilkan seluruh koleksi perpustakaan sekolah secara digital.',
-    scan: 'Arahkan kamera ke barcode buku untuk melihat detail dan status ketersediaannya.',
-    pinjam: 'Cek status peminjaman buku dan tanggal pengembalian melalui menu ini.'
-  };
-  document.querySelectorAll('.tool-card').forEach(btn => {
-    btn.addEventListener('click', () => {
-      libNote.textContent = libMessages[btn.getAttribute('data-lib')] || '';
-    });
-  });
 
   /* ------------------------------------------------------------------
      9. DOWNLOAD BROSUR (placeholder aman tanpa backend)
