@@ -142,8 +142,11 @@
     items.slice(0, 6).forEach(item => {
       const card = document.createElement('article');
       card.className = 'news-card';
+      const thumb = item.image
+        ? `<div class="news-card__thumb news-card__thumb--photo" style="background-image:url('${item.image}')"></div>`
+        : `<div class="news-card__thumb"></div>`;
       card.innerHTML = `
-        <div class="news-card__thumb"></div>
+        ${thumb}
         <div class="news-card__body">
           <span class="news-card__date">${item.date}</span>
           <h4>${item.title}</h4>
