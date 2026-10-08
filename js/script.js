@@ -137,14 +137,88 @@
     { title: "Siswa Raih Juara Lomba Seni Tingkat Provinsi", date: "20 Juli 2026", excerpt: "Prestasi membanggakan dari cabang seni vokal solo tingkat SMALB." },
     { title: "Pelatihan Vokasi IT Angkatan Baru Dimulai", date: "10 Juli 2026", excerpt: "Program vokasi IT membuka kelas baru untuk siswa SMPLB dan SMALB." }
   ];
+  /* Slider foto pada kartu berita: panah kiri/kanan, titik, geser (swipe),
+     putar otomatis yang bisa dijeda (aksesibel; mati otomatis jika pengguna
+     memilih "kurangi gerakan"). */
+  function initNewsCarousel(root){
+    const track = root.querySelector('.news-carousel__track');
+    const slides = root.querySelectorAll('.news-carousel__slide');
+    const dots = root.querySelectorAll('.news-carousel__dot');
+    const toggleBtn = root.querySelector('.news-carousel__toggle');
+    const toggleIcon = toggleBtn.querySelector('span');
+    let index = 0, timer = null, userPaused = prefersReducedMotion, hoverPaused = false;
+
+    const go = (i) => {
+      index = (i + slides.length) % slides.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d, n) => {
+        d.classList.toggle('is-active', n === index);
+        d.setAttribute('aria-current', n === index ? 'true' : 'false');
+      });
+    };
+    const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+    const start = () => {
+      stop();
+      if (!userPaused && !hoverPaused && slides.length > 1) timer = setInterval(() => go(index + 1), 4500);
+      track.setAttribute('aria-live', timer ? 'off' : 'polite');
+    };
+    const syncToggle = () => {
+      toggleBtn.setAttribute('aria-label', userPaused ? 'Putar foto otomatis' : 'Jeda pergantian foto otomatis');
+      toggleIcon.textContent = userPaused ? '▶' : '❚❚';
+    };
+
+    root.querySelector('.news-carousel__btn--prev').addEventListener('click', () => go(index - 1));
+    root.querySelector('.news-carousel__btn--next').addEventListener('click', () => go(index + 1));
+    dots.forEach((d, n) => d.addEventListener('click', () => go(n)));
+    toggleBtn.addEventListener('click', () => { userPaused = !userPaused; syncToggle(); start(); });
+
+    root.addEventListener('mouseenter', () => { hoverPaused = true; start(); });
+    root.addEventListener('mouseleave', () => { hoverPaused = false; start(); });
+    root.addEventListener('focusin', () => { hoverPaused = true; start(); });
+    root.addEventListener('focusout', () => { hoverPaused = false; start(); });
+
+    let startX = null;
+    root.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+    root.addEventListener('touchend', (e) => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(index + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') go(index - 1);
+      if (e.key === 'ArrowRight') go(index + 1);
+    });
+
+    go(0); syncToggle(); start();
+  }
+
   const renderNews = (items) => {
     newsGrid.innerHTML = '';
     items.slice(0, 6).forEach(item => {
       const card = document.createElement('article');
       card.className = 'news-card';
-      const thumb = item.image
-        ? `<div class="news-card__thumb news-card__thumb--photo" style="background-image:url('${item.image}')"></div>`
-        : `<div class="news-card__thumb"></div>`;
+      const gallery = Array.isArray(item.images) ? item.images.filter(Boolean) : [];
+      let thumb;
+      if (gallery.length > 1) {
+        const slides = gallery.map((src, n) =>
+          `<img class="news-carousel__slide" src="${src}" alt="${item.title} — foto ${n + 1} dari ${gallery.length}" loading="${n === 0 ? 'eager' : 'lazy'}">`).join('');
+        const dots = gallery.map((_, n) =>
+          `<button type="button" class="news-carousel__dot${n === 0 ? ' is-active' : ''}" aria-label="Lihat foto ${n + 1}"></button>`).join('');
+        thumb = `
+          <div class="news-carousel" role="group" aria-roledescription="carousel" aria-label="Foto kegiatan: ${item.title}">
+            <div class="news-carousel__track" aria-live="off">${slides}</div>
+            <button type="button" class="news-carousel__btn news-carousel__btn--prev" aria-label="Foto sebelumnya"><span aria-hidden="true">&#8249;</span></button>
+            <button type="button" class="news-carousel__btn news-carousel__btn--next" aria-label="Foto berikutnya"><span aria-hidden="true">&#8250;</span></button>
+            <button type="button" class="news-carousel__toggle"><span aria-hidden="true"></span></button>
+            <div class="news-carousel__dots">${dots}</div>
+          </div>`;
+      } else {
+        const single = item.image || gallery[0];
+        thumb = single
+          ? `<div class="news-card__thumb news-card__thumb--photo" style="background-image:url('${single}')"></div>`
+          : `<div class="news-card__thumb"></div>`;
+      }
       card.innerHTML = `
         ${thumb}
         <div class="news-card__body">
@@ -153,6 +227,8 @@
           <p>${item.excerpt}</p>
         </div>`;
       newsGrid.appendChild(card);
+      const carousel = card.querySelector('.news-carousel');
+      if (carousel) initNewsCarousel(carousel);
     });
   };
   fetch('data/news.json')

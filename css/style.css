@@ -546,3 +546,25 @@ button{ font-family:inherit; cursor:pointer; }
   }
 }
 
+
+/* Slider foto pada kartu berita */
+.news-carousel{ position:relative; height:240px; overflow:hidden; background:var(--color-surface-alt); }
+.news-carousel__track{ display:flex; height:100%; transition:transform .5s ease; }
+.news-carousel__slide{ flex:0 0 100%; width:100%; height:100%; object-fit:contain; }
+.news-carousel__btn{
+  position:absolute; top:50%; transform:translateY(-50%); width:36px; height:36px; border-radius:50%; border:none;
+  background:rgba(15,23,42,.55); color:#fff; font-size:1.5rem; line-height:1; display:flex; align-items:center; justify-content:center;
+  transition:background var(--transition);
+}
+.news-carousel__btn:hover{ background:rgba(15,23,42,.85); }
+.news-carousel__btn--prev{ left:.5rem; }
+.news-carousel__btn--next{ right:.5rem; }
+.news-carousel__toggle{
+  position:absolute; top:.5rem; right:.5rem; min-width:30px; height:30px; padding:0 .5rem; border-radius:999px; border:none;
+  background:rgba(15,23,42,.55); color:#fff; font-size:.7rem; display:flex; align-items:center; justify-content:center;
+}
+.news-carousel__toggle:hover{ background:rgba(15,23,42,.85); }
+.news-carousel__dots{ position:absolute; bottom:.5rem; left:0; right:0; display:flex; justify-content:center; gap:.4rem; }
+.news-carousel__dot{ width:10px; height:10px; padding:0; border-radius:999px; border:none; background:rgba(255,255,255,.75); box-shadow:0 0 0 1px rgba(15,23,42,.35); transition:var(--transition); }
+.news-carousel__dot.is-active{ width:22px; background:var(--color-blue); }
+@media (prefers-reduced-motion: reduce){ .news-carousel__track{ transition:none; } }
