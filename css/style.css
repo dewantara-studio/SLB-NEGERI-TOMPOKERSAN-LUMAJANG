@@ -306,17 +306,6 @@ button{ font-family:inherit; cursor:pointer; }
 .timeline__item:nth-child(even) .timeline__card:hover{ transform:translateX(6px); box-shadow:var(--shadow-md); }
 .timeline__card h4{ margin-bottom:.3rem; }
 
-/* Filter / Gallery */
-.filter-bar{ display:flex; gap:.7rem; flex-wrap:wrap; margin-bottom:2rem; }
-.filter-btn{ border:1px solid var(--color-border); background:var(--color-surface); color:var(--color-text); padding:.55rem 1.2rem; border-radius:999px; font-weight:500; transition:all var(--transition); }
-.filter-btn.is-active,.filter-btn:hover{ background:var(--gradient-brand); color:#fff; border-color:transparent; box-shadow:var(--shadow-glow-blue); }
-.gallery-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; }
-.gallery-item{ margin:0; border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-sm); background:var(--color-surface); transition:opacity .3s, transform .35s, box-shadow .35s; position:relative; }
-.gallery-item:hover{ transform:translateY(-6px) scale(1.015); box-shadow:var(--shadow-lg); }
-.gallery-item.is-hidden{ display:none; }
-.gallery-item__img{ height:170px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.6rem; transition:transform .5s ease; background-size:cover; background-position:center; }
-.gallery-item:hover .gallery-item__img{ transform:scale(1.08); }
-.gallery-item figcaption{ padding:.8rem 1rem; font-size:.9rem; color:var(--color-text); font-weight:500; }
 
 .news-card{ background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-sm); transition:transform var(--transition), box-shadow var(--transition); }
 .news-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); }
@@ -497,7 +486,6 @@ button{ font-family:inherit; cursor:pointer; }
   .card-grid--3{ grid-template-columns:repeat(2,1fr); }
   .card-grid--4{ grid-template-columns:repeat(2,1fr); }
   .footer__grid{ grid-template-columns:repeat(2,1fr); }
-  .gallery-grid{ grid-template-columns:repeat(3,1fr); }
 }
 @media (max-width: 768px){
   .navbar{ padding:.8rem 1rem 0; }
@@ -513,7 +501,6 @@ button{ font-family:inherit; cursor:pointer; }
   .nav-toggle{ display:flex; }
   .btn-spmb-nav{ display:none; }
   .stats__grid{ grid-template-columns:repeat(2,1fr); }
-  .gallery-grid{ grid-template-columns:repeat(2,1fr); }
   .card-grid--3,.card-grid--4{ grid-template-columns:1fr; }
   .footer__grid{ grid-template-columns:1fr; }
   .timeline::before{ left:14px; }
@@ -523,7 +510,6 @@ button{ font-family:inherit; cursor:pointer; }
 }
 @media (max-width: 480px){
   .stats__grid{ grid-template-columns:1fr 1fr; gap:1rem; }
-  .gallery-grid{ grid-template-columns:1fr 1fr; }
   .spmb__actions .btn{ width:100%; }
 }
 
@@ -568,3 +554,9 @@ button{ font-family:inherit; cursor:pointer; }
 .news-carousel__dot{ width:10px; height:10px; padding:0; border-radius:999px; border:none; background:rgba(255,255,255,.75); box-shadow:0 0 0 1px rgba(15,23,42,.35); transition:var(--transition); }
 .news-carousel__dot.is-active{ width:22px; background:var(--color-blue); }
 @media (prefers-reduced-motion: reduce){ .news-carousel__track{ transition:none; } }
+
+/* Ekstrakurikuler */
+.subsection-title--first{ margin-top:0; }
+.ekskul-sublist{ list-style:none; margin:.9rem 0 0; display:grid; gap:.8rem; }
+.ekskul-sublist li{ padding-left:.9rem; border-left:3px solid var(--color-green); font-size:.92rem; line-height:1.55; }
+.ekskul-sublist strong{ display:block; color:var(--color-ink); font-family:var(--font-display); font-size:.95rem; }

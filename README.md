@@ -6,11 +6,11 @@ Website statis (HTML/CSS/JS murni, tanpa backend) untuk SLB Negeri Tompokersan L
 
 ```
 slbn-tompokersan/
-├── index.html          # Halaman utama (semua section: hero, profil, program, prestasi, galeri, berita, SPMB, kontak, dll)
+├── index.html          # Halaman utama (semua section: hero, profil, program, prestasi, berita, SPMB, kontak, dll)
 ├── css/
 │   └── style.css       # Seluruh styling, dark mode, high contrast, responsive
 ├── js/
-│   └── script.js       # Navbar, slideshow, counter, filter galeri, kalender, chatbot TUNAS, widget aksesibilitas
+│   └── script.js       # Navbar, slideshow, counter, kalender, chatbot TUNAS, widget aksesibilitas
 ├── data/
 │   └── news.json        # Data berita (bisa diedit tanpa perlu koding)
 ├── assets/
@@ -71,7 +71,7 @@ Setelah diisi, video terbaru dari channel akan tampil otomatis dan teracak setia
 
 ## Konten yang Perlu Disesuaikan
 - Ganti nomor WhatsApp (`6281234567890`), email, dan alamat pada `index.html` dengan data resmi sekolah.
-- Ganti placeholder foto (gradasi warna di galeri, kepala sekolah, dsb.) dengan foto asli sekolah.
+- Ganti placeholder foto (kepala sekolah, dsb.) dengan foto asli sekolah.
 - Perbarui `data/news.json` secara berkala untuk berita terbaru tanpa perlu menyentuh kode.
 - Sesuaikan jumlah statistik (`data-count`) di bagian Statistik pada `index.html`.
 - Tambahkan link Instagram, brosur PDF, dan tautan Google Maps yang sebenarnya.

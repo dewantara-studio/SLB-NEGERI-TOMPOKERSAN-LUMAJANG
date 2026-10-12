@@ -112,23 +112,6 @@
   }
 
   /* ------------------------------------------------------------------
-     5. GALERI FILTER
-  ------------------------------------------------------------------ */
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-      const filter = btn.getAttribute('data-filter');
-      galleryItems.forEach(item => {
-        const show = filter === 'semua' || item.getAttribute('data-cat') === filter;
-        item.classList.toggle('is-hidden', !show);
-      });
-    });
-  });
-
-  /* ------------------------------------------------------------------
      6. BERITA (fetch JSON, dengan fallback jika gagal / file:// )
   ------------------------------------------------------------------ */
   const newsGrid = document.getElementById('news-grid');
