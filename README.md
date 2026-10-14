@@ -8,9 +8,11 @@ Website statis (HTML/CSS/JS murni, tanpa backend) untuk SLB Negeri Tompokersan L
 slbn-tompokersan/
 ├── index.html          # Halaman utama (semua section: hero, profil, program, prestasi, berita, SPMB, kontak, dll)
 ├── css/
-│   └── style.css       # Seluruh styling, dark mode, high contrast, responsive
+│   ├── style.css       # Seluruh styling, dark mode, high contrast, responsive
+│   └── inklusi.css     # Styling fitur layanan inklusi
 ├── js/
-│   └── script.js       # Navbar, slideshow, counter, kalender, chatbot TUNAS, widget aksesibilitas
+│   ├── script.js       # Navbar, slideshow, counter, kalender, chatbot TUNAS, widget aksesibilitas
+│   └── inklusi.js      # Skrining mandiri, ruang Snoezelen + nada penenang, Braille & SIBI, e-katalog vokasi
 ├── data/
 │   └── news.json        # Data berita (bisa diedit tanpa perlu koding)
 ├── assets/
@@ -52,6 +54,28 @@ Section "Virtual Tour" mengambil data dari `data/tour.json`. Situs otomatis mena
 3. Simpan dan upload — Virtual Tour otomatis aktif, pengunjung bisa putar 360° dan pindah ruangan lewat tab di atas viewer.
 
 Opsional: setiap scene bisa punya `hotspots` (titik yang bisa diklik untuk pindah ke ruangan lain langsung dari dalam foto 360°) — formatnya sudah disiapkan di `tour.json`, tinggal isi `pitch`, `yaw`, `title`, dan `target` (id scene tujuan).
+
+## Fitur Layanan Inklusi
+
+Semua fitur ini berjalan di browser (tanpa backend) dan mengikuti dark mode / kontras tinggi.
+
+| Bagian di halaman | Isi |
+|---|---|
+| **Layanan** (`#layanan`) | Program Layanan Kekhususan (autisme, tunagrahita, tunarungu, tunanetra, tunadaksa, tunaganda) |
+| **Karya Vokasi** (`#karya-vokasi`) | E-Katalog Karya & Produk Siswa Vokasi, tombol pesan membuka WhatsApp admin |
+| **Skrining** (`#skrining`) | Modul skrining awal mandiri 3 tahap + Check-List Indikator Deteksi Dini |
+| **Multisensori** (`#multisensori`) | Ruang Snoezelen interaktif + Mode Suasana Penenang (warna, kecepatan, nada latar) |
+| **Braille & SIBI** (`#braille-sibi`) | Penerjemah visual Braille (A-Z) dan abjad isyarat SIBI |
+
+**E-Katalog** - edit `data/produk.json`. Tiap item punya `program`, `name`, `description`, dan opsional `type` (`karya`/`layanan`), `icon`, `image`, `price`. Selama `items` kosong, situs menampilkan 7 kartu bawaan (satu per program vokasi, tanpa harga). Tambahkan foto ke `assets/img/produk/` lalu isi `image`.
+
+**Abjad isyarat SIBI** - taruh 26 gambar resmi `a.png` sampai `z.png` di `assets/img/sibi/` (lihat `BACA-INI.txt` di folder itu). Gambar sengaja tidak dibuat otomatis agar isyarat yang ditampilkan akurat. Sebelum gambar dipasang, pengunjung melihat pesan "sedang disiapkan".
+
+**Catatan penting**
+- Skrining mandiri dan check-list hanya memberi gambaran awal dan **bukan diagnosis**; teks penafian sudah dicantumkan di halaman.
+- Nada latar di ruang multisensori hanya gelombang sinus lembut untuk relaksasi, bukan terapi medis.
+- Tombol "Kirim hasil ke admin" membuka WhatsApp dengan ringkasan jawaban; tidak ada data yang dikirim otomatis atau disimpan di server.
+- Periksa kembali daftar jenis layanan di bagian Layanan agar sesuai dengan layanan yang benar-benar tersedia di sekolah.
 
 ## Menghubungkan Sosial Media (YouTube, Instagram, TikTok)
 

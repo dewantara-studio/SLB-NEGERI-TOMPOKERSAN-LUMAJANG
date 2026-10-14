@@ -1,0 +1,16 @@
+FOLDER GAMBAR ABJAD ISYARAT SIBI
+=================================
+
+Panel "Abjad Isyarat SIBI" di website otomatis aktif begitu gambar tersedia.
+
+Cara memasang:
+1. Siapkan 26 gambar abjad isyarat SIBI yang RESMI/akurat (misalnya dari buku
+   atau kamus SIBI Kemendikdasmen atau dari guru SLB-B), satu gambar per huruf.
+2. Beri nama huruf kecil dengan format .png:
+   a.png, b.png, c.png, ... z.png
+3. Upload ke folder ini (assets/img/sibi/).
+4. Selesai - tidak perlu mengubah kode. Rasio gambar disarankan 1:1 (persegi).
+
+Catatan: sebelum a.png tersedia, pengunjung akan melihat pesan "gambar sedang
+disiapkan". Gambar sengaja tidak dibuat otomatis agar isyarat yang ditampilkan
+benar-benar sesuai SIBI.

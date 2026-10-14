@@ -438,6 +438,10 @@
   }
 
   const tunasReplies = [
+    { keys: ['skrining','deteksi','tumbuh kembang','asesmen'], reply: 'Kamu bisa mencoba Skrining Awal Mandiri dan Check-List Deteksi Dini di bagian Skrining pada halaman ini. Hasilnya hanya gambaran awal, bukan diagnosis — bisa dikirim ke admin lewat WhatsApp untuk didiskusikan. 🌱' },
+    { keys: ['snoezelen','penenang','multisensori','sensori','relaksasi'], reply: 'Ada Ruang Snoezelen interaktif di bagian Ruang Multisensori: gelembung cahaya yang menenangkan, dengan pilihan warna, kecepatan, dan nada latar lewat Mode Suasana Penenang.' },
+    { keys: ['braille','sibi','isyarat','tunanetra','tunarungu'], reply: 'Di bagian Braille & SIBI kamu bisa mengetik kata dan melihat tampilannya dalam titik Braille. Kami juga punya Program Layanan Kekhususan untuk tunanetra, tunarungu, dan kebutuhan lainnya.' },
+    { keys: ['karya','produk','katalog','beli','pesan'], reply: 'Lihat E-Katalog Karya & Produk Siswa Vokasi untuk hasil praktik murid. Klik tombol pesan di tiap kartu untuk bertanya langsung ke admin lewat WhatsApp.' },
     { keys: ['spmb','daftar','pendaftaran'], reply: 'Pendaftaran SPMB 2026/2027 100% GRATIS! Klik tombol "Daftar Sekarang" di bagian SPMB, atau hubungi admin lewat WhatsApp untuk dibantu proses pendaftarannya. 🌱' },
     { keys: ['lokasi','alamat','peta','maps','dimana'], reply: 'Sekolah kami berada di Jl. Tompokersan, Lumajang, Jawa Timur. Kamu bisa lihat peta lengkapnya di bagian Kontak pada halaman ini.' },
     { keys: ['program','vokasi','ekstrakurikuler','unggulan'], reply: 'Program unggulan kami: Vokasi IT, Tata Graha, Seni & Keterampilan, PJOK Adaptif, Projek P5, dan Literasi Sekolah. Lihat detailnya di bagian Program ya!' },
