@@ -69,7 +69,7 @@ Semua fitur ini berjalan di browser (tanpa backend) dan mengikuti dark mode / ko
 
 **E-Katalog** - edit `data/produk.json`. Tiap item punya `program`, `name`, `description`, dan opsional `type` (`karya`/`layanan`), `icon`, `image`, `price`. Selama `items` kosong, situs menampilkan 7 kartu bawaan (satu per program vokasi, tanpa harga). Tambahkan foto ke `assets/img/produk/` lalu isi `image`.
 
-**Abjad isyarat SIBI** - taruh 26 gambar resmi `a.png` sampai `z.png` di `assets/img/sibi/` (lihat `BACA-INI.txt` di folder itu). Gambar sengaja tidak dibuat otomatis agar isyarat yang ditampilkan akurat. Sebelum gambar dipasang, pengunjung melihat pesan "sedang disiapkan".
+**Abjad isyarat SIBI** - 26 gambar (`a.png` sampai `z.png`) ada di `assets/img/sibi/`, dipotong dari bagan "Abjad dalam SIBI" yang diberikan sekolah. Untuk mengganti, timpa file dengan nama yang sama (lihat `BACA-INI.txt`). Jika folder itu kosong, pengunjung melihat pesan "sedang disiapkan".
 
 **Catatan penting**
 - Skrining mandiri dan check-list hanya memberi gambaran awal dan **bukan diagnosis**; teks penafian sudah dicantumkan di halaman.
