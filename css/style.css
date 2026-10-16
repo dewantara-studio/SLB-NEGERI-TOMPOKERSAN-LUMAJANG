@@ -364,7 +364,7 @@ button{ font-family:inherit; cursor:pointer; }
 /* Footer */
 .footer{ background:var(--color-ink); color:#CBD5E1; padding:4.5rem 0 1.5rem; position:relative; overflow:hidden; }
 [data-theme="dark"] .footer{ background:#050b1a; }
-.footer__grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.3fr; gap:2rem; position:relative; z-index:1; }
+.footer__grid{ display:grid; grid-template-columns:1.2fr 1.25fr 1.35fr 1.2fr; gap:2rem; position:relative; z-index:1; }
 .footer h4{ color:#fff; font-size:1rem; margin-bottom:1rem; }
 .footer a{ color:#CBD5E1; transition:color var(--transition); }
 .footer a:hover{ color:var(--color-green); }
@@ -581,4 +581,34 @@ button{ font-family:inherit; cursor:pointer; }
 }
 @media (max-width:1060px){
   .nav-menu.is-open{ max-height:560px; margin-top:.6rem; }
+}
+
+/* ==========================================================================
+   FOOTER — kontak & media sosial
+   ========================================================================== */
+.footer address{ font-style:normal; }
+.footer address p{ margin:.45rem 0; line-height:1.5; overflow-wrap:anywhere; }
+.footer__social{ list-style:none; margin:0; padding:0; display:grid; gap:.55rem; }
+.social-link{
+  display:flex; align-items:center; gap:.7rem; padding:.5rem .7rem; border-radius:12px;
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); color:#E2E8F0;
+  transition:background var(--transition), transform var(--transition);
+}
+.footer .social-link:hover{ background:rgba(255,255,255,.11); color:#fff; transform:translateX(3px); }
+.social-link__icon{
+  width:34px; height:34px; flex:0 0 34px; border-radius:50%; display:grid; place-items:center;
+  color:#fff; font-weight:700; font-size:.95rem; font-family:var(--font-display);
+}
+.social-link__icon--wa{ background:#25D366; }
+.social-link__icon--ig{ background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF,#515BD4); }
+.social-link__icon--tt{ background:#000; box-shadow:0 0 0 1px rgba(255,255,255,.25); }
+.social-link__icon--yt{ background:#FF0000; }
+.social-link__icon--fb{ background:#1877F2; }
+.social-link__text{ display:flex; flex-direction:column; line-height:1.25; min-width:0; }
+.social-link__text strong{ font-size:.9rem; color:#fff; font-weight:600; }
+.social-link__text small{ font-size:.75rem; color:#94A3B8; overflow-wrap:anywhere; }
+.social-link--primary{ border-color:rgba(34,197,94,.55); background:rgba(34,197,94,.12); }
+.social-link__badge{
+  margin-left:auto; flex:0 0 auto; font-size:.68rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+  padding:.15rem .5rem; border-radius:999px; background:var(--color-green); color:#052E16;
 }
