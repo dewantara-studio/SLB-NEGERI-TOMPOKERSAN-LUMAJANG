@@ -9,7 +9,7 @@
 (function () {
   'use strict';
 
-  const WA_NUMBER = '6285231132642';
+  const WA_NUMBER = '6281333881251'; // Bu Hesti, kontak utama
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const $ = (sel, root = document) => root.querySelector(sel);
