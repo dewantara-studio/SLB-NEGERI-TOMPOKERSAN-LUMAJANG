@@ -1,0 +1,16 @@
+FOLDER GAMBAR ABJAD ISYARAT SIBI
+=================================
+
+Folder ini berisi 26 gambar abjad isyarat SIBI (a.png sampai z.png) yang
+dipotong dari bagan "Abjad dalam SIBI" yang diberikan sekolah. Panel
+"Abjad Isyarat SIBI" di website membaca gambar-gambar ini secara otomatis.
+
+Mengganti gambar:
+1. Siapkan gambar baru yang akurat/resmi (misalnya dari kamus SIBI atau guru SLB-B).
+2. Beri nama huruf kecil berformat .png: a.png, b.png, ... z.png
+   (rasio 1:1/persegi, latar putih, disarankan 200x200 piksel atau lebih besar).
+3. Upload ke folder ini menimpa file lama. Tidak perlu mengubah kode.
+
+Catatan: gambar sumber beresolusi kecil, sehingga hasilnya agak lembut. Jika ada
+versi bagan yang lebih tajam, potongan bisa dibuat ulang dengan kualitas lebih baik.
+Pastikan sekolah berhak memakai bagan tersebut (cantumkan sumbernya bila perlu).

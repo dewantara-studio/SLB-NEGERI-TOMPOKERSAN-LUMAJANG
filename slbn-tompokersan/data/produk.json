@@ -1,0 +1,4 @@
+{
+  "_petunjuk": "Isi 'items' dengan karya/produk siswa. Field: program (nama program vokasi), name, description, type ('karya' atau 'layanan', opsional), icon (emoji, opsional), image (path foto, opsional, mis. assets/img/produk/kue.jpg), price (teks harga, opsional, mis. 'Rp 25.000'). Item yang name-nya mengandung kata CONTOH diabaikan. Jika file ini kosong atau gagal dimuat, situs memakai 7 kartu bawaan per program vokasi.",
+  "items": []
+}
