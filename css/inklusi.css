@@ -210,3 +210,23 @@
 @media (prefers-reduced-motion:reduce){
   .toast,.choice,.produk-card,.inklusi-shortcuts a{ transition:none; }
 }
+
+/* ==========================================================================
+   PERBAIKAN TEPI TOMBOL GRADASI
+   Latar gradasi + border transparan: secara bawaan gradasi dihitung dari bagian
+   dalam border lalu "berulang" ke area border, sehingga ujung kiri/kanan tombol
+   kebagian garis warna dari ujung gradasi yang berlawanan. Dengan origin
+   border-box, gradasi membentang mulus sampai tepi luar.
+   ========================================================================== */
+.btn,
+.chip,
+.tour-tabs button,
+.a11y-widget__panel button,
+.tunas-widget__quick button,
+.stepper__num{
+  background-origin:border-box !important;
+}
+
+/* Tombol kecil: bayangan netral dan tipis, tanpa pendar warna di sisi kiri-kanan */
+.btn--sm.btn--primary{ box-shadow:0 2px 6px rgba(15,23,42,.18); }
+.btn--sm.btn--primary:hover{ box-shadow:0 6px 14px rgba(15,23,42,.22); }
