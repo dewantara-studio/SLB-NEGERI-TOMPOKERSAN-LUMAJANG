@@ -1,0 +1,1063 @@
+{
+  "_petunjuk": "Basis pengetahuan asisten TUNAS. Edit jawaban di 'entries' tanpa perlu koding. Tiap entri: id, title (label tombol saran), keywords (kata/frasa pemicu, huruf kecil), answer (paragraf dipisah baris kosong, gunakan \\n\\n), actions (tombol di bawah jawaban: goto '#bagian', wa 'teks pesan', href 'tautan', tel 'nomor'), follow (id entri yang disarankan berikutnya). Jangan menulis informasi yang belum pasti - arahkan ke Bu Hesti.",
+  "config": {
+    "csName": "Bu Hesti",
+    "csWa": "6281333881251",
+    "csTel": "+6281333881251",
+    "csDisplay": "0813-3388-1251",
+    "aiEndpoint": "",
+    "aiNote": "Isi aiEndpoint dengan alamat proxy AI milik sekolah jika ingin TUNAS menjawab pertanyaan di luar basis pengetahuan ini dengan AI sungguhan. Lihat docs/TUNAS-AI.md. Kosongkan untuk mematikan."
+  },
+  "greeting": "Hai! Aku TUNAS 🌱, asisten otomatis SLB Negeri Tompokersan Lumajang.\n\nAku bisa menjawab soal pendaftaran, layanan, program, dan lokasi sekolah, serta membantu Bapak/Ibu yang ingin bertanya tentang putra/putrinya. Kalau butuh bantuan langsung, Bu Hesti siap dihubungi kapan saja lewat tombol hijau di bawah.",
+  "greetingReply": "Halo! Aku TUNAS 🌱 Senang bisa membantu. Mau tanya apa hari ini? Kamu bisa pilih saran di bawah, atau tulis pertanyaanmu sendiri.",
+  "thanksReply": "Sama-sama! 🌿 Kalau masih ada yang ingin ditanyakan, aku siap membantu. Untuk bantuan langsung, Bu Hesti bisa dihubungi lewat tombol hijau di bawah.",
+  "ackReply": "Siap! Ada lagi yang ingin ditanyakan?",
+  "fallbackText": "Maaf, aku belum punya jawaban yang pasti untuk itu. Aku asisten otomatis, jadi jawabanku terbatas pada informasi yang ada di website ini.\n\nSupaya tidak keliru, silakan tanyakan langsung ke Bu Hesti. Pertanyaanmu akan terisi otomatis di WhatsApp. Atau coba salah satu topik di bawah.",
+  "aiNotice": "Dijawab oleh asisten AI dan bisa saja kurang tepat. Untuk hal penting, konfirmasikan ke Bu Hesti.",
+  "quick": [
+    "spmb",
+    "anak",
+    "layanan",
+    "biaya",
+    "lokasi",
+    "cs"
+  ],
+  "needChips": [
+    {
+      "label": "Autisme / interaksi",
+      "need": "autism"
+    },
+    {
+      "label": "Sulit memahami",
+      "need": "intellectual"
+    },
+    {
+      "label": "Pendengaran",
+      "need": "hearing"
+    },
+    {
+      "label": "Belum bisa bicara",
+      "need": "speech"
+    },
+    {
+      "label": "Penglihatan",
+      "need": "vision"
+    },
+    {
+      "label": "Gerak / motorik",
+      "need": "motoric"
+    },
+    {
+      "label": "Belum tahu",
+      "need": "unknown"
+    }
+  ],
+  "needs": {
+    "autism": {
+      "label": "interaksi dan komunikasi (spektrum autisme)",
+      "words": [
+        "autis",
+        "autisme",
+        "autistik",
+        "asd",
+        "spektrum autisme"
+      ],
+      "layanan": "Layanan Autisme di sekolah berfokus pada regulasi emosi, panduan visual untuk struktur harian, dan stimulasi sensori terpadu."
+    },
+    "intellectual": {
+      "label": "pemahaman dan belajar (tunagrahita)",
+      "words": [
+        "tunagrahita",
+        "down syndrome",
+        "sindrom down",
+        "lambat belajar",
+        "lambat memahami",
+        "sulit memahami",
+        "daya tangkap lambat",
+        "sulit belajar"
+      ],
+      "layanan": "Layanan Tunagrahita mengembangkan keterampilan hidup mandiri (bina diri) dan kecakapan sosial praktis sehari-hari, dengan instruksi bertahap yang sederhana."
+    },
+    "hearing": {
+      "label": "pendengaran (tunarungu)",
+      "words": [
+        "tunarungu",
+        "tuli",
+        "tidak bisa mendengar",
+        "kurang dengar",
+        "sulit mendengar",
+        "gangguan pendengaran",
+        "pendengaran"
+      ],
+      "layanan": "Layanan Tunarungu meliputi latihan artikulasi wicara, persepsi bunyi dan irama (BKPBI), serta penggunaan bahasa isyarat BISINDO/SIBI."
+    },
+    "speech": {
+      "label": "keterlambatan bicara",
+      "words": [
+        "belum bisa bicara",
+        "belum bicara",
+        "terlambat bicara",
+        "telat bicara",
+        "speech delay",
+        "susah bicara",
+        "sulit bicara",
+        "tidak bisa bicara",
+        "belum bisa berbicara"
+      ],
+      "layanan": "Keterlambatan bicara bisa punya banyak penyebab (misalnya pendengaran, perkembangan, atau lainnya), jadi sebaiknya diperiksa dulu oleh dokter anak atau psikolog. Latihan komunikasi dan artikulasi didukung lewat layanan sekolah untuk tunarungu dan autisme."
+    },
+    "vision": {
+      "label": "penglihatan (tunanetra)",
+      "words": [
+        "tunanetra",
+        "buta",
+        "low vision",
+        "tidak bisa melihat",
+        "gangguan penglihatan",
+        "penglihatan",
+        "sulit melihat"
+      ],
+      "layanan": "Layanan Tunanetra meliputi pembelajaran huruf Braille, orientasi dan mobilitas dengan tongkat, serta teknologi audio digital."
+    },
+    "motoric": {
+      "label": "gerak dan motorik (tunadaksa)",
+      "words": [
+        "tunadaksa",
+        "lumpuh",
+        "cerebral palsy",
+        "cp",
+        "kursi roda",
+        "polio",
+        "motorik",
+        "sulit berjalan",
+        "tidak bisa berjalan"
+      ],
+      "layanan": "Layanan Tunadaksa meliputi bina gerak, latihan koordinasi dan motorik, serta lingkungan sekolah yang ramah aksesibilitas."
+    },
+    "multiple": {
+      "label": "lebih dari satu hambatan (tunaganda)",
+      "words": [
+        "tunaganda",
+        "hambatan ganda",
+        "lebih dari satu hambatan",
+        "beberapa hambatan",
+        "disabilitas ganda"
+      ],
+      "layanan": "Layanan Tunaganda berupa pendampingan terpadu yang disesuaikan dengan kombinasi kebutuhan anak, disertai rancangan stimulasi multisensori."
+    },
+    "behavior": {
+      "label": "perilaku dan fokus",
+      "words": [
+        "hiperaktif",
+        "adhd",
+        "sulit fokus",
+        "tantrum",
+        "sulit diatur",
+        "sulit konsentrasi"
+      ],
+      "layanan": "Untuk kebutuhan perilaku dan fokus, pemetaan kebutuhan oleh tenaga profesional bersama guru sangat disarankan sebelum menentukan layanan yang paling tepat."
+    },
+    "unknown": {
+      "label": "kebutuhan yang belum jelas",
+      "words": [
+        "belum tahu",
+        "tidak tahu",
+        "bingung",
+        "belum yakin",
+        "tidak yakin",
+        "entahlah"
+      ],
+      "onlyWhenAsked": true,
+      "layanan": "Tidak apa-apa kalau belum tahu, justru itulah gunanya pemetaan awal. Skrining Awal di website dan konsultasi dengan Bu Hesti bisa membantu menentukan langkah berikutnya."
+    }
+  },
+  "safety": {
+    "selfHarm": {
+      "words": [
+        "bunuh diri",
+        "mengakhiri hidup",
+        "ingin mati",
+        "pengen mati",
+        "menyakiti diri",
+        "melukai diri",
+        "self harm"
+      ],
+      "text": "Aku turut prihatin dan terima kasih sudah mau bercerita. Kamu berharga, dan kamu tidak harus menghadapinya sendirian.\n\nJika ada bahaya langsung sekarang, hubungi 112 atau segera ke IGD terdekat. Kamu juga bisa bicara dengan konselor Healing119 (layanan Kemenkes, gratis): telepon 119 lalu tekan 8, atau WhatsApp 0811-3855-472.\n\nAku asisten otomatis dan tidak bisa menggantikan bantuan profesional, tapi orang-orang di sekitarmu, termasuk Bu Hesti di sekolah, bisa membantu mencarikan dukungan.",
+      "actions": [
+        {
+          "label": "📞 Telepon 119",
+          "tel": "119"
+        },
+        {
+          "label": "💬 WhatsApp Healing119",
+          "href": "https://wa.me/628113855472"
+        },
+        {
+          "label": "💬 Hubungi Bu Hesti",
+          "wa": "Halo Bu Hesti, saya membutuhkan bantuan segera."
+        }
+      ]
+    },
+    "abuse": {
+      "words": [
+        "dipukul",
+        "dianiaya",
+        "disiksa",
+        "dilecehkan",
+        "dicabuli",
+        "diperkosa",
+        "pelecehan seksual",
+        "kekerasan seksual"
+      ],
+      "text": "Terima kasih sudah memberi tahu. Keselamatan anak adalah yang utama.\n\nJika anak dalam bahaya sekarang, segera hubungi 112. Kekerasan terhadap anak dapat dilaporkan ke SAPA 129 (KemenPPPA): telepon 129 atau WhatsApp 0811-1129-129. Jika anak terluka, bawa ke puskesmas atau rumah sakit terdekat.\n\nBu Hesti di sekolah juga siap mendengarkan dan membantu langkah selanjutnya.",
+      "actions": [
+        {
+          "label": "📞 Telepon 129",
+          "tel": "129"
+        },
+        {
+          "label": "💬 WhatsApp SAPA 129",
+          "href": "https://wa.me/628111129129"
+        },
+        {
+          "label": "💬 Hubungi Bu Hesti",
+          "wa": "Halo Bu Hesti, saya ingin melaporkan/menanyakan sesuatu yang mendesak terkait keselamatan anak."
+        }
+      ]
+    }
+  },
+  "entries": [
+    {
+      "id": "spmb",
+      "title": "Cara daftar SPMB",
+      "keywords": [
+        "spmb",
+        "daftar",
+        "mendaftar",
+        "pendaftaran",
+        "daftarkan",
+        "penerimaan peserta didik baru",
+        "ppdb",
+        "masuk sekolah",
+        "mau sekolah",
+        "registrasi",
+        "pendaftar"
+      ],
+      "answer": "Pendaftaran SPMB 2026/2027 di SLB Negeri Tompokersan Lumajang 100% gratis untuk jenjang SDLB, SMPLB, dan SMALB. Klik tombol Daftar Sekarang di bagian SPMB, atau minta dibantu langsung oleh Bu Hesti lewat WhatsApp.\n\nAku belum punya daftar persyaratan dan jadwal resmi, jadi sebaiknya dipastikan ke Bu Hesti.",
+      "actions": [
+        {
+          "label": "📝 Buka bagian SPMB",
+          "goto": "#spmb"
+        },
+        {
+          "label": "💬 Tanya Bu Hesti",
+          "wa": "Halo Bu Hesti, saya ingin bertanya tentang pendaftaran SPMB 2026/2027."
+        }
+      ],
+      "follow": [
+        "syarat",
+        "biaya",
+        "jenjang",
+        "anak"
+      ]
+    },
+    {
+      "id": "biaya",
+      "title": "Biaya sekolah",
+      "keywords": [
+        "biaya",
+        "gratis",
+        "bayar",
+        "spp",
+        "tarif",
+        "mahal",
+        "murah",
+        "iuran",
+        "sumbangan",
+        "uang pangkal",
+        "uang sekolah",
+        "uang gedung"
+      ],
+      "answer": "Menurut informasi di website, pendaftaran SPMB 2026/2027 100% gratis.\n\nUntuk biaya lain di luar pendaftaran (misalnya seragam atau kegiatan tertentu), aku belum punya informasinya. Silakan tanyakan ke Bu Hesti agar tidak keliru.",
+      "actions": [
+        {
+          "label": "💬 Tanya Bu Hesti",
+          "wa": "Halo Bu Hesti, saya ingin menanyakan soal biaya di SLB Negeri Tompokersan Lumajang."
+        }
+      ],
+      "follow": [
+        "spmb",
+        "syarat",
+        "belum"
+      ]
+    },
+    {
+      "id": "syarat",
+      "title": "Syarat & jadwal pendaftaran",
+      "keywords": [
+        "syarat",
+        "persyaratan",
+        "dokumen",
+        "berkas",
+        "jadwal pendaftaran",
+        "kapan dibuka",
+        "kapan pendaftaran",
+        "batas pendaftaran",
+        "tahapan",
+        "alur pendaftaran",
+        "seleksi",
+        "tes masuk",
+        "kuota",
+        "formulir",
+        "syarat pendaftaran",
+        "persyaratan pendaftaran",
+        "syarat masuk",
+        "dibuka kapan",
+        "kapan mulai daftar"
+      ],
+      "answer": "Aku belum memiliki daftar persyaratan, tahapan, maupun jadwal resmi SPMB. Supaya informasinya akurat, silakan tanyakan langsung ke Bu Hesti. Pertanyaanmu bisa dikirim lewat tombol WhatsApp di bawah.",
+      "actions": [
+        {
+          "label": "💬 Tanya Bu Hesti",
+          "wa": "Halo Bu Hesti, saya ingin menanyakan persyaratan dan jadwal SPMB 2026/2027."
+        },
+        {
+          "label": "📝 Lihat bagian SPMB",
+          "goto": "#spmb"
+        }
+      ],
+      "follow": [
+        "spmb",
+        "biaya",
+        "cs"
+      ]
+    },
+    {
+      "id": "anak",
+      "title": "Tanya soal anak saya",
+      "flow": "parent",
+      "keywords": [
+        "konsultasi anak",
+        "tanya soal anak",
+        "tentang anak saya",
+        "bertanya tentang anak",
+        "konsultasi"
+      ],
+      "answer": ""
+    },
+    {
+      "id": "layanan",
+      "title": "Layanan kekhususan",
+      "keywords": [
+        "layanan",
+        "kekhususan",
+        "abk",
+        "berkebutuhan khusus",
+        "disabilitas",
+        "tunanetra",
+        "tunarungu",
+        "tunagrahita",
+        "tunadaksa",
+        "tunaganda",
+        "autis",
+        "autisme",
+        "difabel",
+        "melayani"
+      ],
+      "answer": "Program layanan kekhususan kami melayani peserta didik dengan kebutuhan:\n• Autisme (spektrum)\n• Tunagrahita\n• Tunarungu\n• Tunanetra\n• Tunadaksa\n• Tunaganda\n\nTiap layanan disesuaikan dengan kebutuhan fisik, kognitif, dan komunikasi murid. Jenis layanan dapat berbeda pada tiap jenjang, jadi untuk kebutuhan anak tertentu sebaiknya dikonfirmasi ke Bu Hesti.",
+      "actions": [
+        {
+          "label": "🧩 Lihat layanan",
+          "goto": "#layanan"
+        },
+        {
+          "label": "🎯 Coba skrining awal",
+          "goto": "#skrining"
+        }
+      ],
+      "follow": [
+        "anak",
+        "skrining",
+        "jenjang",
+        "cs"
+      ]
+    },
+    {
+      "id": "jenjang",
+      "title": "Jenjang pendidikan",
+      "personalize": "jenjang",
+      "keywords": [
+        "jenjang",
+        "sdlb",
+        "smplb",
+        "smalb",
+        "tingkat",
+        "kelas",
+        "sd",
+        "smp",
+        "sma",
+        "tk"
+      ],
+      "answer": "Kami memiliki tiga jenjang: SDLB, SMPLB, dan SMALB. Sebagai gambaran, SDLB umumnya untuk usia sekitar 7-12 tahun, SMPLB 13-15 tahun, dan SMALB 16 tahun ke atas. Penempatan tiap anak tetap perlu dibicarakan dengan sekolah.",
+      "actions": [
+        {
+          "label": "🏫 Lihat jenjang",
+          "goto": "#profil"
+        }
+      ],
+      "follow": [
+        "spmb",
+        "anak",
+        "vokasi"
+      ]
+    },
+    {
+      "id": "vokasi",
+      "title": "Program vokasi",
+      "keywords": [
+        "vokasi",
+        "keterampilan",
+        "tata boga",
+        "tata busana",
+        "tata graha",
+        "rekayasa",
+        "cuci motor",
+        "pijat",
+        "massage",
+        "magang",
+        "siap kerja",
+        "program sekolah",
+        "program unggulan",
+        "program",
+        "dunia kerja",
+        "lowongan"
+      ],
+      "answer": "Program vokasi kami ada 7: Tata Boga, Tata Busana, Tata Graha, IT, Keterampilan Rekayasa, Cuci Motor, dan Pijat (Massage).\n\nMurid belajar keterampilan sederhana yang fungsional sebagai bekal mandiri dan dunia kerja. Hasil karyanya bisa dilihat di E-Katalog Karya Siswa.",
+      "actions": [
+        {
+          "label": "🛠️ Lihat program vokasi",
+          "goto": "#program"
+        },
+        {
+          "label": "🛍️ E-Katalog karya",
+          "goto": "#karya-vokasi"
+        }
+      ],
+      "follow": [
+        "karya",
+        "ekskul",
+        "layanan"
+      ]
+    },
+    {
+      "id": "ekskul",
+      "title": "Ekstrakurikuler",
+      "keywords": [
+        "ekstrakurikuler",
+        "ekskul",
+        "pramuka",
+        "drumband",
+        "tari",
+        "melukis",
+        "ecoprint",
+        "banjari",
+        "qiroah",
+        "menyanyi",
+        "musik",
+        "kegiatan tambahan"
+      ],
+      "answer": "Ekstrakurikuler wajib: Pramuka.\n\nEkstrakurikuler pilihan: Drumband, Seni Musik (Al Banjari, Menyanyi, Qiroah), Seni Tari, Melukis, dan Ecoprint.",
+      "actions": [
+        {
+          "label": "🎨 Lihat ekstrakurikuler",
+          "goto": "#ekstrakurikuler"
+        }
+      ],
+      "follow": [
+        "vokasi",
+        "prestasi",
+        "profil"
+      ]
+    },
+    {
+      "id": "lokasi",
+      "title": "Lokasi sekolah",
+      "keywords": [
+        "lokasi",
+        "alamat",
+        "peta",
+        "maps",
+        "dimana",
+        "letak",
+        "rute",
+        "arah",
+        "jalan veteran",
+        "tempat sekolah"
+      ],
+      "answer": "SLB Negeri Tompokersan Lumajang berada di Jalan Veteran No. 31, Kelurahan Tompokersan, Kecamatan Lumajang, Kabupaten Lumajang, Jawa Timur. Petanya ada di bagian Kontak di bawah halaman.",
+      "actions": [
+        {
+          "label": "📍 Buka Google Maps",
+          "href": "https://www.google.com/maps/search/?api=1&query=SLB+Negeri+Tompokersan+Lumajang"
+        },
+        {
+          "label": "Lihat peta di halaman",
+          "goto": "#kontak"
+        }
+      ],
+      "follow": [
+        "kontak",
+        "spmb",
+        "cs"
+      ]
+    },
+    {
+      "id": "kontak",
+      "title": "Kontak & media sosial",
+      "keywords": [
+        "kontak",
+        "nomor",
+        "email",
+        "whatsapp",
+        "telepon",
+        "instagram",
+        "tiktok",
+        "youtube",
+        "facebook",
+        "sosmed",
+        "media sosial",
+        "hubungi"
+      ],
+      "answer": "Kontak utama: Bu Hesti, WhatsApp 0813-3388-1251.\nBu Anik (Kepala Sekolah): 0852-3113-2642.\nEmail: slbntompokersanlumajang@gmail.com\n\nMedia sosial: Instagram dan TikTok @slbntompokersanlmj, YouTube @slbntompokersanlumajang, Facebook Slbn Lumajang.",
+      "actions": [
+        {
+          "label": "💬 Chat Bu Hesti",
+          "wa": "Halo Bu Hesti, saya ingin bertanya."
+        },
+        {
+          "label": "Lihat semua kontak",
+          "goto": "#kontak"
+        }
+      ],
+      "follow": [
+        "lokasi",
+        "cs",
+        "spmb"
+      ]
+    },
+    {
+      "id": "cs",
+      "title": "Hubungi Bu Hesti",
+      "keywords": [
+        "cs",
+        "customer service",
+        "admin",
+        "operator",
+        "manusia",
+        "orang asli",
+        "petugas",
+        "bicara langsung",
+        "ngobrol langsung",
+        "bu hesti",
+        "bu hesty",
+        "ibu hesti",
+        "hubungi bu hesti",
+        "bicara dengan manusia",
+        "manusia asli",
+        "telepon manusia",
+        "bicara dengan orang",
+        "bicara sama orang",
+        "ngobrol sama manusia",
+        "pengurus sekolah",
+        "bicara dengan petugas"
+      ],
+      "answer": "Tentu! Bu Hesti adalah kontak utama sekolah. Klik tombol WhatsApp di bawah, pertanyaanmu tadi akan terisi otomatis supaya Bu Hesti langsung paham. Kalau lebih nyaman lewat telepon, kamu juga bisa menelepon langsung.",
+      "actions": [
+        {
+          "label": "💬 Chat Bu Hesti",
+          "wa": "Halo Bu Hesti, saya ingin bertanya."
+        },
+        {
+          "label": "📞 Telepon Bu Hesti",
+          "tel": "+6281333881251"
+        }
+      ],
+      "follow": [
+        "spmb",
+        "layanan",
+        "lokasi"
+      ]
+    },
+    {
+      "id": "profil",
+      "title": "Profil & sejarah sekolah",
+      "keywords": [
+        "profil",
+        "sejarah",
+        "berdiri",
+        "didirikan",
+        "tentang sekolah",
+        "sekolah ini",
+        "negeri",
+        "1984",
+        "2018",
+        "satu satunya"
+      ],
+      "answer": "SLB Negeri Tompokersan Lumajang adalah satu-satunya SLB Negeri di Kota Lumajang. Sekolah ini berdiri sejak tahun 1984 dengan nama SDLB Tompokersan Lumajang, lalu beralih fungsi menjadi SLB Negeri Tompokersan Lumajang pada 10 Juli 2018.",
+      "actions": [
+        {
+          "label": "📖 Baca profil lengkap",
+          "goto": "#profil"
+        }
+      ],
+      "follow": [
+        "visimisi",
+        "kepsek",
+        "data"
+      ]
+    },
+    {
+      "id": "visimisi",
+      "title": "Visi, misi & tujuan",
+      "keywords": [
+        "visi",
+        "misi",
+        "tujuan",
+        "motto",
+        "cita cita sekolah",
+        "nilai sekolah",
+        "karakter"
+      ],
+      "answer": "Visi: Terwujudnya SLB yang menghasilkan lulusan berkarakter, kreatif, dan mandiri.\n\nMisi singkatnya: (1) menanamkan keimanan, ketaqwaan, dan pendidikan karakter lewat pembiasaan rutin setiap pagi; (2) mengarahkan bakat dan minat murid serta menjalin kerja sama magang kerja; (3) memaksimalkan program 7 Kebiasaan Anak Indonesia Hebat untuk bekal kemandirian.",
+      "actions": [
+        {
+          "label": "📖 Baca visi, misi & tujuan",
+          "goto": "#profil"
+        }
+      ],
+      "follow": [
+        "profil",
+        "vokasi",
+        "ekskul"
+      ]
+    },
+    {
+      "id": "kepsek",
+      "title": "Kepala sekolah",
+      "keywords": [
+        "kepala sekolah",
+        "kepsek",
+        "bu anik",
+        "ibu anik",
+        "anik",
+        "pimpinan",
+        "sambutan"
+      ],
+      "answer": "Kepala sekolah kami adalah Anik Handriyani, S.Pd. Sambutannya ada di bagian Profil. Beliau juga bisa dihubungi lewat WhatsApp 0852-3113-2642, tetapi untuk pertanyaan sehari-hari kontak utamanya adalah Bu Hesti.",
+      "actions": [
+        {
+          "label": "Lihat profil",
+          "goto": "#profil"
+        },
+        {
+          "label": "💬 Chat Bu Hesti",
+          "wa": "Halo Bu Hesti, saya ingin bertanya."
+        }
+      ],
+      "follow": [
+        "profil",
+        "kontak"
+      ]
+    },
+    {
+      "id": "data",
+      "title": "Jumlah murid & guru",
+      "keywords": [
+        "jumlah murid",
+        "jumlah siswa",
+        "jumlah guru",
+        "berapa murid",
+        "berapa siswa",
+        "berapa guru",
+        "peserta didik",
+        "tenaga pendidik"
+      ],
+      "answer": "Saat ini ada 143 peserta didik dan 37 guru serta tenaga pendidik di SLB Negeri Tompokersan Lumajang.",
+      "actions": [],
+      "follow": [
+        "profil",
+        "layanan",
+        "jenjang"
+      ]
+    },
+    {
+      "id": "prestasi",
+      "title": "Prestasi sekolah",
+      "keywords": [
+        "prestasi",
+        "juara",
+        "lomba",
+        "fls3n",
+        "fls2n",
+        "lksn",
+        "o2sn",
+        "kompetisi",
+        "berprestasi",
+        "piala",
+        "medali"
+      ],
+      "answer": "Murid kami sudah meraih banyak prestasi di tingkat kabupaten, provinsi, hingga nasional lewat FLS2N/FLS3N (seni), LKSN (keterampilan), dan O2SN (olahraga). Contoh terbaru: Juara 1 Tata Boga LKSN Tingkat Provinsi dan Juara 2 Komik Strip FLS3N Tingkat Provinsi Jawa Timur.",
+      "actions": [
+        {
+          "label": "🏆 Lihat semua prestasi",
+          "goto": "#prestasi"
+        }
+      ],
+      "follow": [
+        "ekskul",
+        "vokasi",
+        "berita"
+      ]
+    },
+    {
+      "id": "skrining",
+      "title": "Skrining & deteksi dini",
+      "keywords": [
+        "skrining",
+        "deteksi dini",
+        "tumbuh kembang",
+        "asesmen",
+        "cek perkembangan",
+        "periksa perkembangan",
+        "self diagnosis",
+        "indikator",
+        "checklist"
+      ],
+      "answer": "Di bagian Skrining ada dua alat bantu untuk orang tua: Skrining Awal Mandiri (3 langkah singkat) dan Check-List Indikator Deteksi Dini.\n\nHasilnya hanya gambaran awal dan bukan diagnosis. Untuk asesmen resmi, konsultasikan dengan dokter anak atau psikolog bersama tim sekolah. Hasil skrining juga bisa dikirim ke Bu Hesti lewat WhatsApp.",
+      "actions": [
+        {
+          "label": "🎯 Mulai skrining",
+          "goto": "#skrining"
+        },
+        {
+          "label": "💬 Tanya Bu Hesti",
+          "wa": "Halo Bu Hesti, saya ingin berkonsultasi tentang tumbuh kembang anak saya."
+        }
+      ],
+      "follow": [
+        "anak",
+        "layanan",
+        "cs"
+      ]
+    },
+    {
+      "id": "snoezelen",
+      "title": "Ruang Snoezelen",
+      "keywords": [
+        "snoezelen",
+        "penenang",
+        "suasana penenang",
+        "mode suasana penenang",
+        "multisensori",
+        "ruang sensori",
+        "relaksasi",
+        "gelembung cahaya",
+        "gelembung"
+      ],
+      "answer": "Di bagian Ruang Multisensori ada simulasi Snoezelen: gelembung cahaya yang menenangkan dengan pilihan warna dan kecepatan, plus Mode Suasana Penenang berupa nada latar lembut. Ini bersifat relaksasi dan simulasi, bukan pengganti terapi dari tenaga profesional.",
+      "actions": [
+        {
+          "label": "✨ Coba Snoezelen",
+          "goto": "#multisensori"
+        }
+      ],
+      "follow": [
+        "braille",
+        "skrining",
+        "gim"
+      ]
+    },
+    {
+      "id": "braille",
+      "title": "Braille & SIBI",
+      "keywords": [
+        "braille",
+        "sibi",
+        "isyarat",
+        "bahasa isyarat",
+        "abjad isyarat",
+        "titik braille",
+        "bisindo"
+      ],
+      "answer": "Di bagian Braille dan SIBI kamu bisa mengetik sebuah kata lalu melihat tampilannya dalam titik Braille dan abjad isyarat SIBI. Cocok untuk belajar bersama anak atau mengenalkan teman pada cara komunikasi yang berbeda.",
+      "actions": [
+        {
+          "label": "🔤 Coba Braille & SIBI",
+          "goto": "#braille-sibi"
+        }
+      ],
+      "follow": [
+        "snoezelen",
+        "layanan",
+        "gim"
+      ]
+    },
+    {
+      "id": "karya",
+      "title": "Karya siswa vokasi",
+      "keywords": [
+        "karya",
+        "produk",
+        "katalog",
+        "beli",
+        "pesan",
+        "jual",
+        "dijual",
+        "hasil karya",
+        "e katalog",
+        "belanja"
+      ],
+      "answer": "E-Katalog Karya dan Produk Siswa Vokasi menampilkan hasil praktik murid dari tiap program vokasi. Klik tombol pesan atau tanya di kartu karya untuk menghubungi Bu Hesti lewat WhatsApp.",
+      "actions": [
+        {
+          "label": "🛍️ Buka e-katalog",
+          "goto": "#karya-vokasi"
+        }
+      ],
+      "follow": [
+        "vokasi",
+        "cs",
+        "prestasi"
+      ]
+    },
+    {
+      "id": "perpus",
+      "title": "Perpustakaan digital",
+      "keywords": [
+        "perpustakaan",
+        "perpus",
+        "buku",
+        "baca",
+        "membaca",
+        "literasi"
+      ],
+      "answer": "Sekolah punya Perpustakaan Digital di situs terpisah. Klik tombol di bawah untuk membukanya di tab baru.",
+      "actions": [
+        {
+          "label": "📚 Buka perpustakaan digital",
+          "href": "https://dewantara-studio.github.io/PERPUS-DIGITAL-SLBN-TOMPOKERSAN/"
+        },
+        {
+          "label": "Lihat di halaman",
+          "goto": "#perpustakaan"
+        }
+      ],
+      "follow": [
+        "gim",
+        "karya",
+        "berita"
+      ]
+    },
+    {
+      "id": "gim",
+      "title": "Gim edukasi",
+      "keywords": [
+        "gim",
+        "game",
+        "permainan",
+        "belajar sambil bermain",
+        "warna warni",
+        "detektif huruf",
+        "belajar ipa",
+        "belajar office",
+        "komik craft",
+        "gim edukasi",
+        "game edukasi"
+      ],
+      "answer": "Bagian Gim Edukasi berisi 6 permainan belajar: Warna-Warni Perasaan, Detektif Huruf dan Angka, Design Craft Studio, Belajar IPA, Office Craft Studio, dan Komik Craft Studio. Setiap kartu langsung membuka permainannya di tab baru.",
+      "actions": [
+        {
+          "label": "🎮 Main gim edukasi",
+          "goto": "#gim"
+        }
+      ],
+      "follow": [
+        "perpus",
+        "snoezelen",
+        "braille"
+      ]
+    },
+    {
+      "id": "berita",
+      "title": "Berita terbaru",
+      "keywords": [
+        "berita",
+        "pengumuman",
+        "kegiatan terbaru",
+        "terbaru",
+        "tka",
+        "gladi bersih",
+        "kts",
+        "kegiatan tengah semester",
+        "informasi terbaru"
+      ],
+      "answer": "Berita dan pengumuman terbaru ada di bagian Berita & Pengumuman, termasuk Ujian TKA 2026 dan Gladi Bersih TKA 2026 jenjang SMALB, serta KTS (Kegiatan Tengah Semester) di Probolinggo. Kamu juga bisa mengikuti Instagram, TikTok, dan YouTube sekolah.",
+      "actions": [
+        {
+          "label": "📰 Buka berita",
+          "goto": "#berita"
+        },
+        {
+          "label": "Lihat sosial media",
+          "goto": "#sosmed"
+        }
+      ],
+      "follow": [
+        "prestasi",
+        "kontak",
+        "spmb"
+      ]
+    },
+    {
+      "id": "kalender",
+      "title": "Kalender akademik",
+      "keywords": [
+        "kalender",
+        "agenda",
+        "libur",
+        "jadwal ujian",
+        "hari libur",
+        "tanggal merah",
+        "jadwal sekolah"
+      ],
+      "answer": "Bagian Kalender Akademik di website hanya memuat ringkasan agenda dan belum tentu lengkap. Untuk jadwal resmi (libur, ujian, dan kegiatan), silakan tanyakan ke Bu Hesti.",
+      "actions": [
+        {
+          "label": "💬 Tanya Bu Hesti",
+          "wa": "Halo Bu Hesti, saya ingin menanyakan jadwal/kalender akademik sekolah."
+        },
+        {
+          "label": "📅 Lihat kalender",
+          "goto": "#kalender"
+        }
+      ],
+      "follow": [
+        "berita",
+        "cs"
+      ]
+    },
+    {
+      "id": "aksesibilitas",
+      "title": "Fitur aksesibilitas",
+      "keywords": [
+        "aksesibilitas",
+        "teks besar",
+        "perbesar teks",
+        "kontras",
+        "mode gelap",
+        "dark mode",
+        "disleksia",
+        "font",
+        "tulisan kecil",
+        "sorot tautan",
+        "pembaca layar"
+      ],
+      "answer": "Tombol aksesibilitas (ikon ♿ di kanan bawah) menyediakan: perbesar atau perkecil teks, kontras tinggi, mode gelap, font ramah disleksia, dan sorot tautan. Pengaturanmu tersimpan di browser. Kamu juga bisa menekan Tab untuk berpindah dengan keyboard, dan ada tombol Lewati ke konten utama.",
+      "actions": [],
+      "follow": [
+        "snoezelen",
+        "braille",
+        "layanan"
+      ]
+    },
+    {
+      "id": "belum",
+      "title": "Info lain (fasilitas, jam, dll.)",
+      "keywords": [
+        "asrama",
+        "antar jemput",
+        "transportasi",
+        "seragam",
+        "terapis",
+        "terapi wicara",
+        "terapi okupasi",
+        "fisioterapi",
+        "guru pendamping",
+        "shadow teacher",
+        "jam belajar",
+        "jam masuk",
+        "jam pulang",
+        "jam sekolah",
+        "jam layanan",
+        "fasilitas",
+        "kantin",
+        "makan siang",
+        "terapi"
+      ],
+      "answer": "Aku belum punya informasi rinci tentang hal itu, dan aku tidak mau memberi jawaban yang keliru. Silakan tanyakan langsung ke Bu Hesti. Pertanyaanmu akan terisi otomatis di WhatsApp.",
+      "actions": [
+        {
+          "label": "💬 Tanya Bu Hesti",
+          "wa": "Halo Bu Hesti, saya ingin menanyakan informasi lain tentang sekolah."
+        }
+      ],
+      "follow": [
+        "layanan",
+        "spmb",
+        "cs"
+      ]
+    },
+    {
+      "id": "bullying",
+      "title": "Perundungan (bullying)",
+      "keywords": [
+        "bully",
+        "bullying",
+        "dibully",
+        "perundungan",
+        "diejek",
+        "dijahili",
+        "dikucilkan"
+      ],
+      "answer": "Perundungan tidak boleh dibiarkan. Jika anak mengalaminya, ceritakan segera kepada guru atau wali kelas, atau hubungi Bu Hesti agar dapat ditindaklanjuti bersama. Jika ada bahaya langsung, hubungi 112. Aku belum punya rincian kebijakan khusus sekolah tentang hal ini.",
+      "actions": [
+        {
+          "label": "💬 Hubungi Bu Hesti",
+          "wa": "Halo Bu Hesti, saya ingin menyampaikan masalah perundungan yang dialami anak."
+        }
+      ],
+      "follow": [
+        "cs",
+        "layanan"
+      ]
+    },
+    {
+      "id": "tunas",
+      "title": "Tentang TUNAS",
+      "keywords": [
+        "siapa kamu",
+        "kamu siapa",
+        "apa itu tunas",
+        "kamu robot",
+        "kamu ai",
+        "chatbot",
+        "kamu bot",
+        "siapa tunas",
+        "kamu manusia",
+        "asisten ai"
+      ],
+      "answer": "Aku TUNAS 🌱, asisten otomatis SLB Negeri Tompokersan Lumajang. Aku menjawab berdasarkan informasi yang ada di website ini, dan belum bisa menggantikan penjelasan langsung dari guru atau tenaga profesional. Untuk hal penting atau pribadi, silakan hubungi Bu Hesti.",
+      "actions": [
+        {
+          "label": "💬 Hubungi Bu Hesti",
+          "wa": "Halo Bu Hesti, saya ingin bertanya."
+        }
+      ],
+      "follow": [
+        "spmb",
+        "anak",
+        "layanan"
+      ]
+    }
+  ]
+}

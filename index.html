@@ -42,7 +42,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css?v=23">
-<link rel="stylesheet" href="css/inklusi.css?v=24">
+<link rel="stylesheet" href="css/inklusi.css?v=25">
 
 <!-- Pannellum: library open-source untuk viewer foto 360° (tanpa backend) -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
@@ -990,23 +990,23 @@
       <button id="tunas-minimize-inner" aria-label="Minimalkan chat" title="Minimalkan">–</button>
       <button id="tunas-close" aria-label="Tutup chat">✕</button>
     </header>
-    <div class="tunas-widget__body" id="tunas-body" role="log" aria-live="polite">
-      <p class="tunas-msg tunas-msg--bot">Hai! Aku TUNAS 🌱 Aku bisa bantu jelaskan info sekolah, cara SPMB, lokasi, dan program unggulan. Mau tanya apa?</p>
+    <div class="tunas-widget__body" id="tunas-body" role="log" aria-live="polite" aria-label="Percakapan dengan TUNAS">
+      <p class="tunas-msg tunas-msg--bot">Hai! Aku TUNAS 🌱, asisten otomatis sekolah. Tanyakan soal pendaftaran, layanan, atau program, atau hubungi Bu Hesti lewat tombol hijau di bawah.</p>
     </div>
-    <div class="tunas-widget__quick">
-      <button data-q="spmb">Cara daftar SPMB</button>
-      <button data-q="lokasi">Lokasi sekolah</button>
-      <button data-q="program">Program unggulan</button>
-    </div>
+    <div class="tunas-widget__quick" id="tunas-quick" aria-label="Saran pertanyaan"></div>
+    <a class="tunas-widget__cs" id="tunas-cs" href="https://wa.me/6281333881251?text=Halo%20Bu%20Hesti%2C%20saya%20menghubungi%20lewat%20asisten%20TUNAS%20di%20website%20SLB%20Negeri%20Tompokersan%20Lumajang." target="_blank" rel="noopener"><span aria-hidden="true">💬</span> Hubungi Bu Hesti (CS)</a>
+    <p class="tunas-widget__hint">TUNAS adalah asisten otomatis, bukan manusia. Jangan kirim data pribadi yang sensitif di sini.</p>
     <form class="tunas-widget__form" id="tunas-form">
       <label for="tunas-input" class="sr-only">Tulis pertanyaan untuk TUNAS</label>
-      <input type="text" id="tunas-input" placeholder="Tulis pertanyaanmu...">
+      <input type="text" id="tunas-input" placeholder="Tulis pertanyaanmu..." maxlength="300" autocomplete="off">
       <button type="submit" aria-label="Kirim pertanyaan">Kirim</button>
     </form>
   </div>
 </div>
 
-<script src="js/script.js?v=23"></script>
-<script src="js/inklusi.js?v=23"></script>
+<script src="js/script.js?v=24"></script>
+<script src="js/inklusi.js?v=24"></script>
+<script src="js/tunas-engine.js?v=24"></script>
+<script src="js/tunas.js?v=24"></script>
 </body>
 </html>

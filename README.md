@@ -12,7 +12,9 @@ slbn-tompokersan/
 │   └── inklusi.css     # Styling fitur layanan inklusi
 ├── js/
 │   ├── script.js       # Navbar, slideshow, counter, kalender, chatbot TUNAS, widget aksesibilitas
-│   └── inklusi.js      # Skrining mandiri, ruang Snoezelen + nada penenang, Braille & SIBI, e-katalog vokasi
+│   ├── inklusi.js      # Skrining mandiri, ruang Snoezelen + nada penenang, Braille & SIBI, e-katalog vokasi
+│   ├── tunas-engine.js # Mesin jawaban asisten TUNAS
+│   └── tunas.js        # Tampilan percakapan TUNAS
 ├── data/
 │   └── news.json        # Data berita (bisa diedit tanpa perlu koding)
 ├── assets/
@@ -77,6 +79,23 @@ Semua fitur ini berjalan di browser (tanpa backend) dan mengikuti dark mode / ko
 - Tombol "Kirim hasil ke admin" membuka WhatsApp dengan ringkasan jawaban; tidak ada data yang dikirim otomatis atau disimpan di server.
 - Periksa kembali daftar jenis layanan di bagian Layanan agar sesuai dengan layanan yang benar-benar tersedia di sekolah.
 
+## Asisten TUNAS (chatbot)
+
+TUNAS menjawab dari basis pengetahuan sekolah (`data/tunas-kb.json`), memahami bahasa sehari-hari dan salah ketik,
+punya alur khusus orang tua yang bertanya tentang anaknya (usia + hambatan -> ringkasan, bukan diagnosis), dan selalu
+menyediakan tombol **Hubungi Bu Hesti (CS)** dengan pertanyaan terisi otomatis di WhatsApp.
+
+| File | Fungsi |
+|---|---|
+| `data/tunas-kb.json` | Semua jawaban, kata pemicu, nomor kontak, dan (opsional) alamat AI. **Edit di sini.** |
+| `js/tunas-engine.js` | Mesin pencocokan (tanpa DOM, bisa diuji) |
+| `js/tunas.js` | Tampilan percakapan, tombol aksi, saran pertanyaan |
+| `tests/` | Uji otomatis: `node tests/tunas-engine.test.js` dan `node tests/tunas-ui.test.js` |
+| `docs/TUNAS-AI.md` | Cara menambahkan AI sungguhan lewat proxy (opsional, berbayar) |
+
+Untuk informasi yang belum pasti (biaya seragam, jam belajar, dsb.) TUNAS tidak mengarang, melainkan mengarahkan ke Bu Hesti.
+Jika ada pertanyaan baru yang sering muncul, tambahkan sebagai entri di `data/tunas-kb.json`.
+
 ## Menghubungkan Sosial Media (YouTube, Instagram, TikTok)
 
 Section "Sosmed" di beranda mengambil data dari `data/social.json`. Edit file itu untuk mengisi konten:
@@ -94,7 +113,7 @@ Section "Sosmed" di beranda mengambil data dari `data/social.json`. Edit file it
 Setelah diisi, video terbaru dari channel akan tampil otomatis dan teracak setiap kunjungan, tanpa perlu update manual lagi. Catatan: ini bukan enkripsi sungguhan (siapa pun yang membuka DevTools tetap bisa melihat key aslinya saat dipakai) — tujuannya hanya menghindari pemindaian otomatis yang mencari pola teks API key polos, supaya key tidak otomatis dinonaktifkan Google lagi.
 
 ## Konten yang Perlu Disesuaikan
-- Ganti nomor WhatsApp (`6281234567890`), email, dan alamat pada `index.html` dengan data resmi sekolah.
+- Kontak sudah terisi: Bu Hesti (WA utama, 0813-3388-1251) dan Bu Anik/KS (0852-3113-2642). Nomor utama dipakai tombol WhatsApp di SPMB, skrining, dan e-katalog (`WA_NUMBER` di `js/inklusi.js`, tombol SPMB di `index.html`), serta footer dan data terstruktur Google.
 - Ganti placeholder foto (kepala sekolah, dsb.) dengan foto asli sekolah.
 - Perbarui `data/news.json` secara berkala untuk berita terbaru tanpa perlu menyentuh kode.
 - Sesuaikan jumlah statistik (`data-count`) di bagian Statistik pada `index.html`.

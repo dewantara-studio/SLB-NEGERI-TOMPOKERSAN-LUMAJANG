@@ -429,54 +429,7 @@
   try { if (localStorage.getItem(MIN_KEY_TUNAS) === '1') setTunasMinimized(true); } catch (e) {}
 
 
-  function addTunasMessage(text, from){
-    const p = document.createElement('p');
-    p.className = 'tunas-msg tunas-msg--' + from;
-    p.textContent = text;
-    tunasBody.appendChild(p);
-    tunasBody.scrollTop = tunasBody.scrollHeight;
-  }
-
-  const tunasReplies = [
-    { keys: ['skrining','deteksi','tumbuh kembang','asesmen'], reply: 'Kamu bisa mencoba Skrining Awal Mandiri dan Check-List Deteksi Dini di bagian Skrining pada halaman ini. Hasilnya hanya gambaran awal, bukan diagnosis — bisa dikirim ke admin lewat WhatsApp untuk didiskusikan. 🌱' },
-    { keys: ['snoezelen','penenang','multisensori','sensori','relaksasi'], reply: 'Ada Ruang Snoezelen interaktif di bagian Ruang Multisensori: gelembung cahaya yang menenangkan, dengan pilihan warna, kecepatan, dan nada latar lewat Mode Suasana Penenang.' },
-    { keys: ['braille','sibi','isyarat','tunanetra','tunarungu'], reply: 'Di bagian Braille & SIBI kamu bisa mengetik kata dan melihat tampilannya dalam titik Braille. Kami juga punya Program Layanan Kekhususan untuk tunanetra, tunarungu, dan kebutuhan lainnya.' },
-    { keys: ['karya','produk','katalog','beli','pesan'], reply: 'Lihat E-Katalog Karya & Produk Siswa Vokasi untuk hasil praktik murid. Klik tombol pesan di tiap kartu untuk bertanya langsung ke admin lewat WhatsApp.' },
-    { keys: ['spmb','daftar','pendaftaran'], reply: 'Pendaftaran SPMB 2026/2027 100% GRATIS! Klik tombol "Daftar Sekarang" di bagian SPMB, atau hubungi Bu Hesti lewat WhatsApp untuk dibantu proses pendaftarannya. 🌱' },
-    { keys: ['lokasi','alamat','peta','maps','dimana'], reply: 'Sekolah kami berada di Jalan Veteran No. 31, Kelurahan Tompokersan, Kecamatan Lumajang, Kabupaten Lumajang, Jawa Timur. Peta lengkapnya ada di bagian Kontak pada halaman ini.' },
-    { keys: ['program','vokasi','ekstrakurikuler','unggulan'], reply: 'Program unggulan kami: Vokasi IT, Tata Graha, Seni & Keterampilan, PJOK Adaptif, Projek P5, dan Literasi Sekolah. Lihat detailnya di bagian Program ya!' },
-    { keys: ['jenjang','sdlb','smplb','smalb'], reply: 'Kami memiliki jenjang SDLB, SMPLB, dan SMALB — semua dirancang sesuai kebutuhan dan kecepatan belajar tiap siswa.' },
-    { keys: ['kontak','telepon','hubungi','wa','whatsapp'], reply: 'Hubungi Bu Hesti (kontak utama) lewat WhatsApp 0813-3388-1251, atau Bu Anik (Kepala Sekolah) di 0852-3113-2642. Email: slbntompokersanlumajang@gmail.com. Semuanya ada di bagian Kontak dan Ikuti Kami di bawah halaman.' },
-    { keys: ['prestasi'], reply: 'Siswa-siswi kami sudah meraih banyak prestasi, mulai dari seni, olahraga adaptif, hingga kerajinan tangan tingkat nasional. Cek bagian Prestasi untuk lihat selengkapnya!' },
-    { keys: ['halo','hai','hi'], reply: 'Halo juga! Aku TUNAS 🌱 Senang bisa membantu kamu hari ini.' },
-    { keys: ['terima kasih','makasih','thanks'], reply: 'Sama-sama! Semoga harimu menyenangkan. 🌿' }
-  ];
-
-  function getTunasReply(message){
-    const lower = message.toLowerCase();
-    for (const item of tunasReplies) {
-      if (item.keys.some(k => lower.includes(k))) return item.reply;
-    }
-    return 'Terima kasih atas pertanyaannya! Untuk info lebih detail, silakan hubungi admin sekolah lewat WhatsApp di bagian Kontak, ya. 🌱';
-  }
-
-  tunasForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const msg = tunasInput.value.trim();
-    if (!msg) return;
-    addTunasMessage(msg, 'user');
-    tunasInput.value = '';
-    setTimeout(() => addTunasMessage(getTunasReply(msg), 'bot'), 400);
-  });
-
-  document.querySelectorAll('.tunas-widget__quick button').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const q = btn.getAttribute('data-q');
-      const label = btn.textContent;
-      addTunasMessage(label, 'user');
-      setTimeout(() => addTunasMessage(getTunasReply(q), 'bot'), 400);
-    });
-  });
+  // Percakapan, balasan, dan saran pertanyaan TUNAS ada di js/tunas.js + js/tunas-engine.js
 
   /* ------------------------------------------------------------------
      12. SOSIAL MEDIA — YouTube otomatis (Data API) + IG/TikTok acak (embed resmi)
