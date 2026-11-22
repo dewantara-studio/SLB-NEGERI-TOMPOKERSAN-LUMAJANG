@@ -364,7 +364,7 @@
         "difabel",
         "melayani"
       ],
-      "answer": "Program layanan kekhususan kami melayani peserta didik dengan kebutuhan:\n• Autisme (spektrum)\n• Tunagrahita\n• Tunarungu\n• Tunanetra\n• Tunadaksa\n• Tunaganda\n\nTiap layanan disesuaikan dengan kebutuhan fisik, kognitif, dan komunikasi murid. Jenis layanan dapat berbeda pada tiap jenjang, jadi untuk kebutuhan anak tertentu sebaiknya dikonfirmasi ke Bu Hesti.",
+      "answer": "Program layanan kekhususan kami melayani peserta didik dengan kebutuhan:\n• Tunanetra\n• Tunarungu\n• Tunagrahita\n• Tunadaksa\n• Tunaganda\n• Autisme (spektrum)\n\nTiap layanan disesuaikan dengan kebutuhan fisik, kognitif, dan komunikasi murid. Jenis layanan dapat berbeda pada tiap jenjang, jadi untuk kebutuhan anak tertentu sebaiknya dikonfirmasi ke Bu Hesti.",
       "actions": [
         {
           "label": "🧩 Lihat layanan",
@@ -671,7 +671,7 @@
     },
     {
       "id": "data",
-      "title": "Jumlah murid & guru",
+      "title": "Jumlah murid & pendidik",
       "keywords": [
         "jumlah murid",
         "jumlah siswa",
@@ -680,9 +680,13 @@
         "berapa siswa",
         "berapa guru",
         "peserta didik",
-        "tenaga pendidik"
+        "tenaga pendidik",
+        "jumlah pendidik",
+        "berapa pendidik",
+        "tenaga kependidikan",
+        "jumlah tenaga kependidikan"
       ],
-      "answer": "Saat ini ada 143 peserta didik dan 37 guru serta tenaga pendidik di SLB Negeri Tompokersan Lumajang.",
+      "answer": "Saat ini ada 153 peserta didik serta 37 pendidik dan tenaga kependidikan di SLB Negeri Tompokersan Lumajang.",
       "actions": [],
       "follow": [
         "profil",

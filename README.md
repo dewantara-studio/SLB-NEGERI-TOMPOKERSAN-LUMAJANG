@@ -13,6 +13,7 @@ slbn-tompokersan/
 ├── js/
 │   ├── script.js       # Navbar, slideshow, counter, kalender, chatbot TUNAS, widget aksesibilitas
 │   ├── inklusi.js      # Skrining mandiri, ruang Snoezelen + nada penenang, Braille & SIBI, e-katalog vokasi
+│   ├── intro.js        # Pembuka video logo reveal
 │   ├── tunas-engine.js # Mesin jawaban asisten TUNAS
 │   └── tunas.js        # Tampilan percakapan TUNAS
 ├── data/
@@ -79,6 +80,18 @@ Semua fitur ini berjalan di browser (tanpa backend) dan mengikuti dark mode / ko
 - Tombol "Kirim hasil ke admin" membuka WhatsApp dengan ringkasan jawaban; tidak ada data yang dikirim otomatis atau disimpan di server.
 - Periksa kembali daftar jenis layanan di bagian Layanan agar sesuai dengan layanan yang benar-benar tersedia di sekolah.
 
+## Pembuka Video Logo Reveal
+
+Saat website dibuka pertama kali, video logo (`assets/logo-reveal.mp4`, 8 detik, ±1,2 MB) tampil layar penuh sebelum website.
+
+- Tampil **sekali per sesi browser** (menutup tab lalu membuka lagi akan menampilkannya kembali). Untuk melihatnya lagi saat mencoba, buka `...?intro=1` pada alamat situs. `?intro=0` mematikannya.
+- Dimulai **tanpa suara** (agar tidak mengagetkan, terutama pengguna yang peka bunyi). Pengunjung bisa menyalakan suara lewat tombol "Nyalakan suara".
+- Tombol **Lewati** (atau tombol Esc) langsung membuka website. Bagian lain halaman dinonaktifkan selama pembuka agar pengguna keyboard dan pembaca layar tidak "tersesat".
+- Tidak tampil bagi pengguna yang mengaktifkan pengaturan sistem "kurangi gerakan" (reduce motion).
+- Aman dari kegagalan: bila video tidak bisa diputar (autoplay diblokir, koneksi lambat, atau file rusak) website langsung dibuka tanpa menunggu.
+- **Mengganti video**: timpa `assets/logo-reveal.mp4` dengan file baru bernama sama. Saran: format MP4 (H.264 + AAC), lebar 1920 px, maksimal 2-3 MB agar tetap cepat; latar hitam akan menyatu mulus dengan layar penuh.
+- Kode: penentu tampil di `<head>` `index.html`, kontrol di `js/intro.js`, uji di `tests/intro.test.js`.
+
 ## Asisten TUNAS (chatbot)
 
 TUNAS menjawab dari basis pengetahuan sekolah (`data/tunas-kb.json`), memahami bahasa sehari-hari dan salah ketik,
@@ -90,7 +103,7 @@ menyediakan tombol **Hubungi Bu Hesti (CS)** dengan pertanyaan terisi otomatis d
 | `data/tunas-kb.json` | Semua jawaban, kata pemicu, nomor kontak, dan (opsional) alamat AI. **Edit di sini.** |
 | `js/tunas-engine.js` | Mesin pencocokan (tanpa DOM, bisa diuji) |
 | `js/tunas.js` | Tampilan percakapan, tombol aksi, saran pertanyaan |
-| `tests/` | Uji otomatis: `node tests/tunas-engine.test.js` dan `node tests/tunas-ui.test.js` |
+| `tests/` | Uji otomatis: `node tests/tunas-engine.test.js`, `node tests/tunas-ui.test.js`, dan `node tests/intro.test.js` |
 | `docs/TUNAS-AI.md` | Cara menambahkan AI sungguhan lewat proxy (opsional, berbayar) |
 
 Untuk informasi yang belum pasti (biaya seragam, jam belajar, dsb.) TUNAS tidak mengarang, melainkan mengarahkan ke Bu Hesti.

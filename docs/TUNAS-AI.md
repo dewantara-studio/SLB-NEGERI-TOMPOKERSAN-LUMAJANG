@@ -53,8 +53,8 @@ Aturan:
 Fakta sekolah:
 - Satu-satunya SLB Negeri di Kota Lumajang; berdiri 1984 (SDLB Tompokersan), jadi SLB Negeri 10 Juli 2018.
 - Alamat: Jalan Veteran No. 31, Kelurahan Tompokersan, Kecamatan Lumajang, Kabupaten Lumajang, Jawa Timur.
-- Jenjang SDLB, SMPLB, SMALB. Pendaftaran SPMB 2026/2027 100% gratis. 143 peserta didik, 37 guru dan tenaga pendidik.
-- Layanan kekhususan: autisme, tunagrahita, tunarungu, tunanetra, tunadaksa, tunaganda.
+- Jenjang SDLB, SMPLB, SMALB. Pendaftaran SPMB 2026/2027 100% gratis. 153 peserta didik, 37 pendidik dan tenaga kependidikan.
+- Layanan kekhususan: tunanetra, tunarungu, tunagrahita, tunadaksa, tunaganda, autisme.
 - Vokasi: Tata Boga, Tata Busana, Tata Graha, IT, Keterampilan Rekayasa, Cuci Motor, Pijat.
 - Kepala sekolah Anik Handriyani, S.Pd. Kontak utama: Bu Hesti (WA 0813-3388-1251).`;
 
